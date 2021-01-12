@@ -1,17 +1,23 @@
 import { Switch, Route } from 'react-router-dom'
 import Body from './components/body'
-import {Header, HeaderUser} from './components/header'
+import Navbar from './components/nav'
+import {Header} from './components/header'
 import ViewError from './views/error'
 import ViewHome from './views/home'
+import ViewBusca from './views/busca'
+
 
 
 export default function App() {
   return (
     <div className="App">
+        <Header>
+          <Navbar />
+        </Header>
       <Body>
-        <Header />
         <Switch>
           <Route path="/home" component={ViewHome} exact/>
+          <Route path="/buscar" component={ViewBusca} exact />
           <Route path="/" component={ViewError} />
         </Switch>
       </Body>

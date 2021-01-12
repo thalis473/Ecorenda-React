@@ -9,8 +9,10 @@
     */
     font-family: 'Roboto', sans-serif;
 
-    --color-primary: linear-gradient(158deg, rgba(238,239,32,1) 0%, rgba(44,110,73,1) 34%);
-    --color-secundary: linear-gradient(158deg, rgba(238,239,32,1) 0%, #95d5b2 34%) #95d5b2;
+    --color-primary:  rgba(44,110,73,1);
+    --color-primary-gradient: linear-gradient(158deg, rgba(238,239,32,1) 0%, rgba(44,110,73,1) 34%);
+    --color-secundary: #95d5b2;
+    --color-secundary-gradient: linear-gradient(158deg, rgba(238,239,32,1) 0%, #95d5b2 34%) #95d5b2;
     --color-background: #f8f9fa;
     --color-background-alternate: ;
     --color-alternate:  rgb(238,239,32);
@@ -19,4 +21,11 @@
     --color-title: #55a630;
 
 
+    --font-xs: 10px;
+    --font-s: 14px;
+    --font-n: 18px;
+    --font-l: 22px;
+    --font-xl: 28px;
+
 }
+
