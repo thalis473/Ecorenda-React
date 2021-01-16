@@ -1,0 +1,8 @@
+label{
+    text-decoration: none;
+    text-align: center;
+    font-size: var(--font-n);
+    font-weight: 700;
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--font-n);
+}

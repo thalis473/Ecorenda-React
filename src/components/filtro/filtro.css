@@ -1,0 +1,9 @@
+.container-fluid{
+    background: var(--color-secundary-gradient);
+
+}
+.h1{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--font-n);
+}

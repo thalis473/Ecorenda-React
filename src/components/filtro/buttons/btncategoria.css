@@ -1,0 +1,12 @@
+/*botões*/
+.btnconfig{   
+    background: var(--color-primary);
+    text-align: center; 
+    font-size: var(--font-n); 
+}
+
+/*icones*/
+.icoconfig{
+    height: 20%;
+    color:var(--color-text)
+}
