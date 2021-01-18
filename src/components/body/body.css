@@ -1,13 +1,14 @@
 .corpo-aplicacao {
     width: 100%;
     background: var(--color-secundary-gradient);
-    padding-top: 120px;
-    padding-bottom: 120px;
+    padding-top: 110px;
+    padding-bottom: 60px;
 }
 
 @media only screen and (min-width: 600px) {
 
     .corpo-aplicacao {
-        padding-top: 90px;
+        padding-top: 80px;
+        padding-bottom: 0;
     }
 }

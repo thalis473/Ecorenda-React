@@ -29,3 +29,15 @@
 
 }
 
+.desk-view {
+    display: none;
+}
+.d-none {
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {
+    .desk-view {
+        display: block;
+    }
+}
