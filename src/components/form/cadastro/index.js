@@ -4,6 +4,15 @@ import './cadastro.css'
 
 
 export default function FormCadastro(props) {
+/*estado do Form*/
+const [form,setForm]=React.useState({
+    email:"",
+    senha:"",
+    tipo:"",
+    sobrenome:"",
+    endereco:"",
+});
+
     return(
         
         <div ClassName="container-fluid">
@@ -32,10 +41,10 @@ export default function FormCadastro(props) {
                     <div className="form-group col-sm-4" >
                         <label for="inputCidade"> Seu Estado</label>
                         <select id="inputEst" className="form-control">
-                            <option selected>Escolha</option>
-                            <option>...</option>
-                            <option>...</option>
-                            <option>...</option>
+                            <option selected>selecione </option>
+                            <option>coletor</option>
+                            <option>catador</option>
+                            <option>estabelecimento</option>
                         </select>
                     </div>
                     <div className="form-gruop col-sm-2">
