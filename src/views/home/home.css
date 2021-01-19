@@ -1,4 +1,4 @@
-section {
+.view-home section {
     width: 90%;
     margin: 25px auto;
     padding: 15px 0;
@@ -6,7 +6,7 @@ section {
     
 }
 
-h1 {
+.view-home section h1 {
     font-size: var(--font-xl);
     font-family: 'Potta One';
     padding: 0 5px;
@@ -36,7 +36,7 @@ h1 {
     text-shadow: 0px 0px 1px black;
 } 
 
-p {
+.view-home p {
     font-size: var(--font-n);
     padding: 0 5px;
     text-shadow: 0px 0px 1px black;
@@ -44,7 +44,7 @@ p {
     display: block;
 }
 
-li{
+.view-home li{
     padding: 10px 5px;
 }
 
@@ -66,7 +66,7 @@ li{
     border-radius: 24px;
 }
 
-h3 {
+.view-home h3 {
     text-align: center;
     color: var(--color-primary);
     margin-bottom: 10px;

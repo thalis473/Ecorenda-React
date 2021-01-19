@@ -1,0 +1,11 @@
+.user-home {
+    display: flex;
+    flex-wrap: wrap;
+    background: var(--color-background);
+}
+
+
+#container-favoritos {
+    width: 100%;
+    
+}

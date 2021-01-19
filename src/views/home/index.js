@@ -7,7 +7,7 @@ import './home.css'
 
 export default function ViewHome() {
     return(
-        <>
+        <div className="view-home">
             <section>
                 <h1>Seja bem vindo ao <span className="destaque">Eco<span className="destaque-alt">Renda!</span></span></h1>
                 <p>Otimizando o trabalho dos catadores de materiais recicláveis</p>
@@ -80,6 +80,6 @@ export default function ViewHome() {
                     </span>
                 </div>
             </section>
-        </>
+        </div>
     )
 }

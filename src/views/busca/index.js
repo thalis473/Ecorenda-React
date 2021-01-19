@@ -16,12 +16,16 @@ export default function ViewBusca() {
     return (
 
         <div>
+
           
             <div>
             <FormBuscar />
        
         
 
+
+       
+
             <PerfilBox dados={itemLista} />
             <PerfilBox dados={itemLista} />
             <PerfilBox dados={itemLista} />
@@ -30,7 +34,12 @@ export default function ViewBusca() {
             <PerfilBox dados={itemLista} />
             <PerfilBox dados={itemLista} />
 
+
             </div> 
+
+            
+
+     
         </div>
     )
 }

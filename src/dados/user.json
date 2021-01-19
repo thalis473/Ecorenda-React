@@ -1,0 +1,31 @@
+{
+    "nome" : "Thalis",
+    "img" : "foto.jpg",
+    "atribuicao" : "coletor",
+    "celular" : "98888-7777",
+    "telefone" : "2222-3333",
+    "email" : "thalis@gmail.com",
+    "localizacao" : {
+        "cep" : "20775-410",
+        "estado" : "RJ",
+        "bairro" : "Miguel Couto",
+        "rua" : "Rua George Sandi",
+        "num" : 21
+    },
+    "desc" : "Sou um cara muito esforçado",
+    "materiais" : [
+        {"nome": "papel", "peso" : "", "valor" : ""},
+        {"nome": "alumínio", "peso" : "", "valor" : ""},
+        {"nome": "plastico", "peso" : "", "valor" : ""},
+        {"nome": "ferro", "peso" : "", "valor" : ""}
+    ],
+    "favoritos" : [],
+    "agendamentos" : [
+        {
+            "pedinte" : {},
+            "fornecedor" : {},
+            "materiais" : {},
+            "promessa" : true 
+        }
+    ]
+}

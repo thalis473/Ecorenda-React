@@ -11,7 +11,7 @@ export default function Navbar() {
     return (
         <nav>
             
-            <Link to="/home"><HomeIcon /><br/>Inicio</Link>
+            <Link to="/"><HomeIcon /><br/>Inicio</Link>
             <Link to="/buscar"><SearchIcon /><br/>Buscar</Link>
             <Link to="/entrar"><AccountCircleIcon /><br/>Entrar</Link>
             <Link to=""><MenuIcon /><br/>Menu</Link>
