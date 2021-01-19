@@ -6,6 +6,8 @@ import ViewError from './views/error'
 import ViewHome from './views/home'
 import ViewBusca from './views/busca'
 import ViewEntrar from './views/entrar'
+import UserHome from './views/userHome'
+import UserPerf from './views/userPerf'
 
 
 
@@ -17,10 +19,12 @@ export default function App() {
         </Header>
       <Body>
         <Switch>
-          <Route path="/home" component={ViewHome} exact/>
+          <Route path="/" component={ViewHome} exact/>
           <Route path="/buscar" component={ViewBusca} exact />
           <Route path="/entrar" component={ViewEntrar} exact />
-          <Route path="/" component={ViewError} />
+          <Route path="/error" component={ViewError} />
+          <Route path="/home/emailuser" component={UserHome} exact />
+          <Route path="/perfil/emailuser" component={UserPerf} exact />
         </Switch>
       </Body>
     </div>
