@@ -11,11 +11,11 @@ const itemLista = {
 
 export default function ViewBusca() {
     return (
-<<<<<<< HEAD
+
         <div>
-            <h1>Página de buscas</h1>
-=======
+
         <div id="group-list-busca">
+            <h1>Página de buscas</h1>
             <section id="filtro">
                 <input type="text" placeholder="Buscar por nome" />
                 <button>BUSCAR</button><br/>
@@ -42,8 +42,9 @@ export default function ViewBusca() {
             <PerfilBox dados={itemLista} />
             <PerfilBox dados={itemLista} />
             <PerfilBox dados={itemLista} />
->>>>>>> a2140449384bbbb170947172f496d0da43b3a4a5
+
             
+        </div>
         </div>
     )
 }
