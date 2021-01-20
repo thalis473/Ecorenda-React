@@ -46,16 +46,16 @@ const login = async (event)=> {
           <form className="container form-group col-sm-4"> 
           <label for="tipo"> Entrar como</label>
                         <select  onChange={controle} id="tipo" className="form-control">
-                            <option value="" selected>escolher</option>
-                            <option value="coletor">coletor</option>
-                            <option value="colaborador">colaborado</option>
-                            <option value="estabelecimento">estabelecimento</option>
+                            <option value="" selected>Selecione</option>
+                            <option value="catador">Catador</option>
+                            <option value="doador">Doador</option>
+                            <option value="estabelecimento">Estabelecimento</option>
                         </select>
               
-                  <label for="email">email</label>
+                  <label for="email">E-mail</label>
                   <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Seu email" 
                   onChange={controle}/>
-                  <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small>
+                  <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu e-mail, com ninguém.</small>
            
              
                   <label for="senha">Senha</label>

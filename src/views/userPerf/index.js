@@ -7,7 +7,7 @@ export default function UserPerf(props) {
         <div className="user-perf">
             <section>
                 <div className="info-g">
-                    <div><img src='#' alt="profile image" /></div>
+                    <div><img className="profile-icon" src={require(`../../img/icons/person.png`).default} alt="profile image" /></div>
                     <div>
                         <span>Nome do usuario</span>
                         <span>Atribuição</span>

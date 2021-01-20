@@ -20,13 +20,13 @@ const [form,setForm]=React.useState({
            <form className="container form-group">
                <div className="from-row">
                    
-                        <label for="Nome"> Seu Nome</label>
+                        <label for="Nome">Seu Nome</label>
                         <input type="text" className="form-control col-sm-6" id="nome" placeholder="Nome"/>
                  
-                        <label for="Sobrenome"> Sobrenome</label>
+                        <label for="Sobrenome">Sobrenome</label>
                         <input type="text" className="form-control col-sm-6" id="sobrenome" placeholder="sobrenome"/>  
 
-                         <label for="email">Email</label>
+                         <label for="email">E-mail</label>
                         <input type="text"  id="email" className="form-control col-sm-3"/>
 
                          <label for="senha">Senha</label>
@@ -35,20 +35,20 @@ const [form,setForm]=React.useState({
 
                 <div className="from-row">
                     
-                        <label for="local"> Seu Endereço</label>
+                        <label for="local">Seu Endereço</label>
                         <input type="text" className="form-control" id="local" placeholder="Endereço completo"/>               
                 <div/>
 
                 <div className="from-row">                  
-                        <label for="cidade"> Cidade</label>
+                        <label for="cidade">Cidade</label>
                         <input type="text" className="form-control col-sm-3" id="cidade" placeholder="Cidade"/>
                                     
-                        <label for="inputCidade"> Categoria</label>
+                        <label for="inputCidade">Categoria</label>
                         <select id="inputEst" className="form-control col-sm-3">
-                            <option selected>selecione </option>
-                            <option>coletor</option>
-                            <option>catador</option>
-                            <option>estabelecimento</option>
+                            <option selected>Selecione </option>
+                            <option value="catador">Catador</option>
+                            <option value="doador">Doador</option>
+                            <option value="estabelecimento">Estabelecimento</option>
                         </select> 
 
                         <label for="cep">CEP</label>

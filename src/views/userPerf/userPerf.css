@@ -21,6 +21,14 @@
     display: flex;
     flex-wrap: wrap;
 }
+.profile-icon {
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background: #ccc;
+    padding: 5px;
+    box-shadow: 0px 0px 3px black;
+}
 .info-g div:first-child {
     width: 30%;
 }

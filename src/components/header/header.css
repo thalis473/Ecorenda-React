@@ -8,10 +8,18 @@ header {
     max-height: 110px;
     background: var(--color-primary);
     box-shadow: 0px 3px 5px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #header-logo {
-    display: none;
+    width: 20%;
+    height: 60%;
+    background: var(--color-background);
+    padding: 15px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 5px black;
 }
 
 @media only screen and (min-width: 600px) {
@@ -26,6 +34,9 @@ header {
     }
 
     #header-logo {
-        display: block;
+        width: 10%;
+        max-width: 80px;
+        height: 60%;
+        margin-left: 15px;
     }
 }

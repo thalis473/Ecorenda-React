@@ -30,12 +30,14 @@
 }
 
 .subtitle {
-    font-size: var(--font-l);
+    font-size: 32px;
     color: var(--color-title);
     font-weight: 600;
     text-shadow: 0px 0px 1px black;
 } 
-
+.view-home ul li {
+    
+}
 .view-home p {
     font-size: var(--font-n);
     padding: 0 5px;

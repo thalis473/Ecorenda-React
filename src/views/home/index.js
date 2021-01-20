@@ -16,17 +16,15 @@ export default function ViewHome() {
             <section>
                 <div>
                     <h2 className="destaque">O problema</h2>
+                    
+                        <p>Um grupo que passa despercebido pela sociedade e que está envolvido diretamente com o processo de
+                            reciclagem de resíduos é o dos <span className="destaque">catadores.</span></p>
 
-                    <ul>
-                        <li className="subtitle"><span className="destaque">79</span> milhôes de toneladas</li>
-                        <p>de resíduos gerados em 2018</p>
-                        <li className="subtitle"><span className="destaque">380</span> Kg/ano</li>
-                        <p>foi a geração média de RSU por pessoa</p>
-                        <li className="subtitle"><span className="destaque">29,9</span> milhoes de toneladas</li>
-                        <p>De RSU foram despejados inadequadamente
-                        em lixões sem nenhuma proteção ao meio
-                        ambiente.</p>
-                    </ul>
+                         <p className="subtitle">MAIS DE 100 PONTOS VICIADOS EM LIXO EM NOVA IGUAÇU</p>
+
+                        <p>(Locais que constantemente são utilizados para realizar descartes incorretos.)</p>
+                        
+                    
                 </div>
 
                 <div>
