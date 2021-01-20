@@ -2,15 +2,28 @@ const express = require('express')
 const conn = require('../conn')
 const catadores = express.Router()
 
+
+
 catadores.get('/catadores', (req, res, next) => {
-    conn.query('select * from usuarios', (error, result) => {
+    let sql = `select * from usuario
+    inner join endereco on usuario.id = endereco.id_usuario 
+    inner join usuario_material on usuario_material.id_usuario = usuario.id 
+    inner join material on usuario_material.id_material = material.id
+    left join agendamento on agendamento.id_usuariodoador = usuario.id or agendamento.id_usuariocatador = usuario.id
+    where endereco.principal = true`
+    conn.query(sql, (error, result) => {
         res.json(result)
     })
 })
 
-catadores.get('/catadores/id=:id', (req, res, next) => {
-    let dados = req.params.id
-    conn.query(`select * from usuarios where id=${dados}`, (error, result) => {
+catadores.get('/catadores/email=:email', (req, res, next) => {
+    let dados = req.params.email
+    let sql = `select usuario.*, endereco.*, material.nome as material from usuario
+    inner join endereco on usuario.id = endereco.id_usuario 
+    inner join usuario_material on usuario_material.id_usuario = usuario.id 
+    inner join material on usuario_material.id_material = material.id
+    where endereco.principal = true and usuario.email= "${dados}"`
+    conn.query(sql, (error, result) => {
         res.json(result)
     })
 })
