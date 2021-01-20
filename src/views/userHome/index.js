@@ -1,5 +1,6 @@
 import MaterialCard from '../../components/materialCard'
 import {PerfilBox} from '../../components/perfil-box'
+import FormBuscar from '../../components/form/busca'
 
 import './userHome.css'
 
@@ -17,7 +18,7 @@ export default function UserHome(props) {
             <MaterialCard rotulo="Valores estimados para hoje"/>
             <div id="container-favoritos">
                 <div id="container-filtro">
-
+                    <FormBuscar />
                 </div>
                 <div id="container-lista">
                     <PerfilBox dados={itemLista} />
