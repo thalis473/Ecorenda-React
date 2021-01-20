@@ -6,7 +6,12 @@ import './entrar.css'
 export default function ViewEntrar() {
     return (
         <div id="view-entrar">
-            <Login /> <Cadastro />
+            <div className="container-form">
+                <Login /> 
+            </div>
+            <div className="container-form">
+                <Cadastro />
+            </div>
         </div>
     )
 }

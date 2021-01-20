@@ -1,4 +1,4 @@
-
+import './busca.css'
 
 export default function FormBuscar(props) {
     return(
@@ -47,7 +47,7 @@ export default function FormBuscar(props) {
                         </div>
                         </div>
                         <div className="input-group-append">
-                        <button className="btn btn-outline-success" type="submit" id="buscar">Buscar</button>
+                        <button className="form-button" type="submit" id="buscar">Buscar</button>
 
                     </div>
                 </div>

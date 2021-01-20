@@ -1,0 +1,11 @@
+.form-button {
+    padding: 5px 10px;
+    outline: none;
+    border-radius: 12px;
+    font-size: var(--font-n);
+    font-weight: 600;
+    color: green;
+    text-shadow: 0px 0px 1px black;
+    background-color: var(--color-primay);
+    border: 1px solid green;
+}

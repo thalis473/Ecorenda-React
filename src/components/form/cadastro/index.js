@@ -51,7 +51,7 @@ const [form,setForm]=React.useState({
                             <option>estabelecimento</option>
                         </select> 
 
-                        <label for="cep">Cep</label>
+                        <label for="cep">CEP</label>
                         <input type="text"  id="cep" className="form-control col-sm-3"/>                  
                 </div>
                 <br/><br/>                                
