@@ -1,10 +1,16 @@
 import React from 'react';
-
+import {useState, useEffect} from 'react'
+import {getApi, getUser} from '../../../dados/fetch'
+import {Redirect} from 'react-router'
 
 
 export default function FormLogin(props) {
+  // Listagem de usuarios
+  const [user, setuser] = useState(false)
+
+
   /*estado do Form*/
- const [form,setForm]=React.useState({
+ const [formData,setFormData]= useState({
     email:"",
     senha:"",
     tipo:""
@@ -13,31 +19,31 @@ export default function FormLogin(props) {
 //pegando dados do formulario
 function controle({target}){ 
   const{id,value}=target
-  setForm({...form,[id]:value})
+  setFormData({...formData,[id]:value})
   const valores ={[id]:value}
-  console.log(form)
 }
 
-
-
-/*// buscando a api usuarios
-function envio(){ 
-  fetch('http://localhost:8080/login/api{variavel de parametro}') //email senha
-  .then(function(res){ 
-    res.json().then(function(res){
-    let pessoa = [res]
-      console.log(pessoa)
-    })
-  })
-}*/
-
+const login = async (event)=> {
+    event.preventDefault()
+    let dados = await getUser(formData.email)
+    setuser(dados)
+  }
+  if(user) {
+    if(formData.email === user[0].email && formData.senha === user[0].senha) {
+      console.log(user)
+      return <Redirect to="/user" />
+    } else {
+      alert("Email ou senha incorretos, favor verificar os campos!")
+      setuser(false)
+    }
+  }
 
     return(
         
         <div ClassName="container">
           <h1>Login</h1>
           
-          <form className="container form-group col-sm-4" action={`http://localhost:8080/login/api${form.email}`} > 
+          <form className="container form-group col-sm-4"> 
           <label for="tipo"> Entrar como</label>
                         <select  onChange={controle} id="tipo" className="form-control">
                             <option value="" selected>escolher</option>
@@ -57,7 +63,7 @@ function envio(){
                   onChange={controle}
                  />
               <br/><br/><br/>
-              <button type="submit"  className="btn btn-success">Entrar</button>
+              <button onClick={login} className="btn btn-success">Entrar</button>
      </form>  
         </div>
     )
