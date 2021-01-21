@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/Ecorenda-React/static/css/main.ad04f41a.chunk.css",
+    "main.js": "/Ecorenda-React/static/js/main.335fca87.chunk.js",
+    "main.js.map": "/Ecorenda-React/static/js/main.335fca87.chunk.js.map",
+    "runtime-main.js": "/Ecorenda-React/static/js/runtime-main.0f404eae.js",
+    "runtime-main.js.map": "/Ecorenda-React/static/js/runtime-main.0f404eae.js.map",
+    "static/js/2.9bc23257.chunk.js": "/Ecorenda-React/static/js/2.9bc23257.chunk.js",
+    "static/js/2.9bc23257.chunk.js.map": "/Ecorenda-React/static/js/2.9bc23257.chunk.js.map",
+    "index.html": "/Ecorenda-React/index.html",
+    "static/css/main.ad04f41a.chunk.css.map": "/Ecorenda-React/static/css/main.ad04f41a.chunk.css.map",
+    "static/js/2.9bc23257.chunk.js.LICENSE.txt": "/Ecorenda-React/static/js/2.9bc23257.chunk.js.LICENSE.txt",
+    "static/media/ecorenda.png": "/Ecorenda-React/static/media/ecorenda.05dc632c.png",
+    "static/media/person.png": "/Ecorenda-React/static/media/person.e7ae4861.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0f404eae.js",
+    "static/js/2.9bc23257.chunk.js",
+    "static/css/main.ad04f41a.chunk.css",
+    "static/js/main.335fca87.chunk.js"
+  ]
+}
