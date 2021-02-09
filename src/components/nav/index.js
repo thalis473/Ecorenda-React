@@ -10,7 +10,6 @@ import './navbar.css'
 export default function Navbar() {
     return (
         <nav>
-            
             <Link to="/"><HomeIcon /><br/>Inicio</Link>
             <Link to="/buscar"><SearchIcon /><br/>Buscar</Link>
             <Link to="/entrar"><AccountCircleIcon /><br/>Entrar</Link>

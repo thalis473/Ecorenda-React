@@ -1,5 +1,4 @@
 import { Switch, Route } from 'react-router-dom'
-import {useState, useEffect} from 'react'
 import Body from './components/body'
 import Navbar from './components/nav'
 import {Header} from './components/header'
@@ -10,15 +9,8 @@ import ViewEntrar from './views/entrar'
 import UserHome from './views/userHome'
 import UserPerf from './views/userPerf'
 
-import {getApi} from './dados/fetch'
 
 export default function App() {
-  const [lista, setLista] = useState([])
-  useEffect(async ()=> {
-    let dados = await getApi()
-    setLista(dados)
-  }, [])
-
 
   return (
     <div className="App">
