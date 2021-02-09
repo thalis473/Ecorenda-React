@@ -1,45 +1,17 @@
-
+import {useSelector} from 'react-redux'
 import FormBuscar from '../../components/form/busca'
 import {PerfilBox} from '../../components/perfil-box'
 import './busca.css'
 
-
-
-const itemLista = {
-    perfilType : "coletor",
-    name: "José",
-    location : "Rua xyz, 999",
-    resources : ["plastico", "vidro", "papel", "aluminio"]
-}
-
 export default function ViewBusca() {
+    const contatos = useSelector(state => state.contatos.dados)
+    
     return (
-
         <div>
-
-          
             <div>
             <FormBuscar />
-       
-        
-
-
-       
-
-            <PerfilBox dados={itemLista} />
-            <PerfilBox dados={itemLista} />
-            <PerfilBox dados={itemLista} />
-            <PerfilBox dados={itemLista} />
-            <PerfilBox dados={itemLista} />
-            <PerfilBox dados={itemLista} />
-            <PerfilBox dados={itemLista} />
-
-
+            {contatos.map(item => <PerfilBox key={item.nome} dados={item} />)}
             </div> 
-
-            
-
-     
         </div>
     )
 }

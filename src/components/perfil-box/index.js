@@ -10,12 +10,12 @@ export function PerfilBox(props) {
                 <span className="perfil-box-label">{props.dados.perfilType}</span>
             </div>
             <div className="perfil-box-midle">
-                <span className="perfil-box-label"> {props.dados.name}</span>
-                <span className="perfil-box-label"> <LocationOnIcon />{props.dados.location}</span>
+                <span className="perfil-box-label"> {props.dados.nome}</span>
+                <span className="perfil-box-label"> <LocationOnIcon />{props.dados.local}</span>
             </div>
             <div className="perfil-box-right desk-view">
                 <span className="perfil-box-label">Recursos <br/>
-                <img src="#" alt={props.dados.resources} />
+                <img src="#" alt={props.dados.recursos} />
                 </span>
             </div>
         </div>
