@@ -12,6 +12,8 @@ const catadores = require('./routes/catadore')
 app.use(catadores)
 const doadores = require('./routes/doadores')
 app.use(doadores)
+const users = require('./routes/usuarios')
+app.use(users)
 
 app.listen(4000, () => {
     console.log('Rodando em: http://localhost:4000/')
