@@ -1,0 +1,14 @@
+.cardPrincipal{
+    border: 1px solid white;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 5px;
+    margin:5px;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+.cardPrincipal:hover{
+    box-shadow: 2px 2px 5px var(--color-segundary);
+}
+.cardFooter{
+    font-size: 12px;
+}

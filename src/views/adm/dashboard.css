@@ -1,0 +1,40 @@
+.view-adm-cards{
+    margin-top:10px;
+    font-family: 'Potta One';
+    display: flex;
+    flex-wrap: wrap;
+}
+.cardPrincipal{
+    border: 1px solid white;
+    box-shadow: 2px 2px 5px black;
+    border-radius: 5px;
+    margin:5px;
+    background-color: var(--color-background);
+    color: var(--color-primary);
+}
+.cardPrincipal:hover{
+    box-shadow: 2px 2px 5px var(--color-segundary);
+}
+.boxGraph{
+    align-items: center;
+    background-color:white;
+    border-radius: 5px;
+}
+.titleDashboard{
+    text-align: center;
+    color:white;
+    margin-top: 10px;
+}
+ .subtitleDashboard{
+    text-align: center;
+    color:white;
+    margin-top: 10px;
+    justify-items: center;
+}
+.view-feedback{
+    overflow:scroll;
+    height: 300px;
+}
+.cardFooter{
+    font-size: 12px;
+}
