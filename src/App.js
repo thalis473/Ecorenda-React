@@ -9,6 +9,7 @@ import ViewEntrar from './views/entrar'
 import ViewMenu from './views/menu'
 import UserHome from './views/userHome'
 import UserPerf from './views/userPerf'
+import Adm from './views/adm'
 
 
 export default function App() {
@@ -27,6 +28,7 @@ export default function App() {
           <Route path={`/user`} component={UserHome} exact />
           <Route path="/perfil" component={UserPerf} exact />
           <Route path='/menu' component={ViewMenu} />
+          <Route path='/adm' component={Adm} />
         </Switch>
       </Body>
     </div>
