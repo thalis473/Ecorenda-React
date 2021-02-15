@@ -37,7 +37,7 @@ const INITIAL_STATE = {
 export default function user(state = INITIAL_STATE, action) {
     switch(action.type) {
         case "LOGIN": 
-            return state
+            return {dados: action.payload}
         default:
             return state
     }

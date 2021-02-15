@@ -13,7 +13,7 @@ export default function Navbar() {
             <Link to="/"><HomeIcon /><br/>Inicio</Link>
             <Link to="/buscar"><SearchIcon /><br/>Buscar</Link>
             <Link to="/entrar"><AccountCircleIcon /><br/>Entrar</Link>
-            <Link to=""><MenuIcon /><br/>Menu</Link>
+            <Link to="/menu"><MenuIcon /><br/>Menu</Link>
         </nav>
     )
 }

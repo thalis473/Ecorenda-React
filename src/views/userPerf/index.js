@@ -1,5 +1,5 @@
 import {useSelector} from 'react-redux'
-import MaterialCard from '../../components/materialCard'
+// import MaterialCard from '../../components/materialCard'
 
 import './userPerf.css'
 
@@ -19,29 +19,29 @@ export default function UserPerf(props) {
                     <span>Informações de contato</span>
                     <span>telefone: {user.telefone}</span>
                     <span>celular: {user.celular}</span>
-                    <span>email: {user.emial}</span>
+                    <span>email: {user.email}</span>
                 </div>
             </section>
 
             <section>
                 <div>
                     <h2>Localização</h2>
-                    <span>cep: {user.localizacao.cep}</span>
-                    <span>estado: {user.localizacao.estado}</span>
-                    <span>bairro: {user.localizacao.bairro}</span>
-                    <span>rua: {user.localizacao.rua}</span>
-                    <span>num: {user.localizacao.num}</span>
+                    <span>cep: {user.cep}</span>
+                    <span>estado: {user.estado}</span>
+                    <span>bairro: {user.bairro}</span>
+                    <span>rua: {user.rua}</span>
+                    <span>num: {user.num}</span>
                 </div>
 
                 <div>
                     <h2>Descrição</h2>
-                    <span>{user.desc}</span>
+                    <span>{user.descricao}</span>
                 </div>
             </section>
 
             <section>
-                <MaterialCard />
-                <MaterialCard />
+                {/* <MaterialCard />
+                <MaterialCard /> */}
             </section>
         </div>
     )

@@ -1,6 +1,23 @@
-import React from 'react'
+import {useState} from 'react'
+import {useDispatch} from 'react-redux'
+import axios from 'axios'
 
 export default function FormLogin(props) {
+  const [login, setLogin] = useState({})
+  const dispatch = useDispatch()
+
+  const handleChange = ({target}) => {
+    const {name, value} = target
+    setLogin({...login, [name]: value})
+  }
+
+  const conn = ()=> axios.get(`http://localhost:4000/users/email=${login.email}/senha=${login.senha}`)
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+    const response = await conn()
+    dispatch({type: 'LOGIN', payload: response.data[0]})
+  }
+
     return(  
     <div className="container">
       <h1>Login</h1>
@@ -15,13 +32,13 @@ export default function FormLogin(props) {
         </select>
           
         <label htmlFor="email">E-mail</label>
-        <input type="email" className="form-control" id="email-login" aria-describedby="emailHelp" placeholder="Seu email" />
+        <input onChange={handleChange} type="email" className="form-control" name="email" placeholder="Seu email" />
         <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu e-mail, com ninguém.</small>
         
         <label htmlFor="senha">Senha</label>
-        <input type="password" className="form-control" id="senha-login" placeholder="Senha"/>
+        <input onChange={handleChange} type="password" className="form-control" name="senha" placeholder="Senha"/>
         <br/><br/><br/>
-        <button className="btn btn-success">Entrar</button>
+        <button onClick={handleSubmit} className="btn btn-success">Entrar</button>
       </form>  
   </div>
     )

@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux'
 
-import MaterialCard from '../../components/materialCard'
+// import MaterialCard from '../../components/materialCard'
 import {PerfilBox} from '../../components/perfil-box'
 import FormBuscar from '../../components/form/busca'
 
@@ -11,8 +11,8 @@ export default function UserHome() {
 
     return (
         <div className="user-home">
-            <MaterialCard rotulo="Recursos Disponíveis"/>
-            <MaterialCard rotulo="Valores do dia"/>
+            {/* <MaterialCard rotulo="Recursos Disponíveis"/>
+            <MaterialCard rotulo="Valores do dia"/> */}
             <div id="container-favoritos">
                 <div id="container-filtro">
                     <FormBuscar />
