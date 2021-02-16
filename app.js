@@ -6,14 +6,12 @@ app.use(cors())
 app.use(express.json())
 
 //rotas
-const estabelecimento = require('./routes/estabelecimentos')
-app.use(estabelecimento)
-const catadores = require('./routes/catadore')
-app.use(catadores)
-const doadores = require('./routes/doadores')
-app.use(doadores)
 const users = require('./routes/usuarios')
 app.use(users)
+const enderecos = require('./routes/enderecos')
+app.use(enderecos)
+const materiais = require('./routes/materiais')
+app.use(materiais)
 
 app.listen(4000, () => {
     console.log('Rodando em: http://localhost:4000/')

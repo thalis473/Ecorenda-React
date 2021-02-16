@@ -5,46 +5,50 @@ const users = express.Router()
 
 // EXIBE USUARIOS
 users.get('/users', (req, res, next) => {
-    let sql = `SELECT usuarios.id, usuarios.atribuicao, usuarios.nome, enderecos.* 
-    FROM usuarios JOIN enderecos
-    ON usuarios.id = enderecos.usuarioID`
+    let sql = `SELECT usuarios.*, enderecos.* , materiais.*
+    FROM usuarios 
+    LEFT OUTER JOIN enderecos
+    ON usuarios.id = enderecos.usuarioID
+    LEFT OUTER JOIN materiais
+    ON usuarios.id = materiais.usuarioID`
     conn.query(sql, (error, result) => {
         res.json(result)
     })
 })
 
-// VALIDAÇÃO LOGIN
+// VALIDAÇÃO LOGIN + DADOS COMPLETOS DO USUARIO
 users.get('/users/email=:email/senha=:senha', (req, res, next) => {
     let dados = {
         email: req.params.email,
         senha: req.params.senha
     }
-    let sql = `SELECT usuarios.*, enderecos.*
-    FROM usuarios JOIN enderecos
+    let sql = `SELECT usuarios.*, enderecos.*, materiais.*
+    FROM usuarios LEFT OUTER JOIN enderecos
     ON usuarios.id = enderecos.usuarioID
+	LEFT OUTER JOIN materiais ON usuarios.id = materiais.usuarioID
     WHERE email = "${dados.email}"
     AND senha = MD5('${dados.senha}')`
     conn.query(sql, (error, result) => {
-        res.json(result)
+        res.json([{msg: "logado como: "},{usuario: result}])
     })
 })
 
-//CADASTRAR USUARIO (INCOMPLETO)
-users.post('/users', (req, res, next) => {
+//CADASTRAR USUARIO 
+users.post('/users/cad', (req, res, next) => {
     let dados = {
-        cpf: req.body.cpf,
         nome: req.body.nome,
+        atribuicao: req.body.atribuicao,
         email: req.body.email,
-        senha: req.body.senha,
-        endereco: req.body.endereco,
-        celular: req.body.celular,
-        telefone: req.body.telefone,
+        senha: req.body.senha
     }
-    conn.query('insert into usuarios set?', dados, () => {
-        res.json([{msg: 'usuario cadastrado!'},{dados}])
+    let sql = `INSERT INTO usuarios(nome, email, senha, atribuicao)
+    VALUES ('${dados.nome}', '${dados.email}', md5('${dados.senha}'), '${dados.atribuicao}')`
+    conn.query(sql, (error, result) => {
+        res.json([{msg: 'usuario cadastrado!'},{dados: dados}, {log: result}])
     })
 })
 
+// <-- ATENÇÃO -->
 // ALTERAR USUARIO (INCOMPLETO)
 users.put('/users/id=:id', (req, res, next) => {
     let dados = {
@@ -65,10 +69,11 @@ users.put('/users/id=:id', (req, res, next) => {
 })
 
 // DELETAR USUARIO
-users.delete('/users/id=:id', (req, res, next) => {
+users.delete('/users/del/id=:id', (req, res, next) => {
     let dados = req.params.id
-    conn.query(`delete from usuarios where id=${dados}`, () => {
-        res.json({msg:`registro ${dados} deletado!`})
+    let sql = `DELETE FROM usuarios WHERE id=${dados} `
+    conn.query(sql, (error, result) => {
+        res.json({msg:`registro ${dados} deletado!`, log: result})
     })
 })
 
