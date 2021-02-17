@@ -29,7 +29,7 @@ users.get('/users/email=:email/senha=:senha', (req, res, next) => {
     WHERE email = "${dados.email}"
     AND senha = MD5('${dados.senha}')`
     conn.query(sql, (error, result) => {
-        res.json([{msg: "logado como: "},{usuario: result}])
+        res.json(result)
     })
 })
 
