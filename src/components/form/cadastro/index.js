@@ -1,33 +1,35 @@
-import React from 'react';
+import {useState, useEffect} from 'react'
+
+import CadUsuario from './usuario'
+import CadEndereco from './endereco'
+import CadMaterial from './material'
+
 import './cadastro.css'
 import Autorizacao from './autorizacao/index'
 
 
 export default function FormCadastro() {
+    const etapas = [<CadUsuario />, <CadEndereco />, <CadMaterial />]
+    const [component, setComponent] = useState(etapas[0])
+
+    const handleNext = (target) => {
+        if(component === etapas[0]) {
+            setComponent(etapas[1])
+        }else {
+            console.log(target)
+            target.className = "d-none"
+            setComponent(etapas[2]) 
+        }
+    }
+
     return(   
     <div className="container">
         <h1>Cadastro</h1>
-        <form className="container form-group">
-            <div className="from-row">
-                <label htmlFor="nome">Seu Nome</label>
-                <input type="text" className="form-control col-sm-6" id="nome" placeholder="Nome"/>
+        <div className="container form-group">
+            {component}
 
-                <label htmlFor="email">E-mail</label>
-                <input type="text"  id="email" className="form-control col-sm-3"/>
-
-                <label htmlFor="senha">Senha</label>
-                <input type="password"  id="senha" className="form-control col-sm-3"/>                       
-
-                <label htmlFor="atribuicao">Atribuição</label>
-                <select id="atribuicao" className="form-control col-sm-3">
-                    <option>SELECIONE</option>
-                    <option value="catador">Catador</option>
-                    <option value="doador">Doador</option>
-                    <option value="estabelecimento">Estabelecimento</option>
-                </select>  
-            </div>
-            
-        </form>
+            <button onClick={handleNext} className="btn btn-success">PROXIMO</button> 
+        </div>
     </div>
     )
 }
