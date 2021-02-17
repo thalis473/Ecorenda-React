@@ -1,0 +1,41 @@
+.card-agendamento{
+    border-radius:5px;
+    margin:20px;
+    background-color:white;
+    padding:5px;
+    text-align:center;
+    color:var(--color-primary);
+    width: 240px;
+}
+.card-border-aluminio{
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-top-style:solid;
+    border-top-color:red;
+    border-top-width:7px;
+}
+.title{
+    text-align:center;
+    font-size: 20px;
+    font-weight: bold;
+}
+.text-status{
+    font-weight: bold;
+}
+.status-confirmado{
+    color:var(--color-title)
+}
+.status-pendente{
+    color:var(--color-alternate)
+}
+.status-negado{
+    color:red;
+}
+@media only screen and (max-width: 600px) {
+    .card-agendamento{
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align:center;
+    }
+}
