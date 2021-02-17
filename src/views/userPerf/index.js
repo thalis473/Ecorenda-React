@@ -5,6 +5,7 @@ import './userPerf.css'
 
 export default function UserPerf(props) {
     const user = useSelector(state => state.user.dados)
+    console.log(user)
     return (
         <div className="user-perf">
             <section>
