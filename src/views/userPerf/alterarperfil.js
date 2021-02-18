@@ -11,6 +11,7 @@ const AtualizarPerfil = () =>{
     const [lista, setLista] = useState({})
 
     const user = useSelector(state => state.user.dados)
+    
     const heardes={
         'Content-Type': 'application/json',
         'Authorization': 'JWT fefege...'
@@ -22,7 +23,7 @@ const AtualizarPerfil = () =>{
     }
         /*envio endereços*/
     const handleSubmitEndereco = (event) => {
-        axios.post('http://localhost:4000/users/cad', endereco,{headers:heardes})
+        axios.post(`http://localhost:4000/alterarenderecos/${user.id}`, endereco,{headers:heardes})
     }
         /*envio material*/
     const handleSubmitMaterial = (event) => {
@@ -30,18 +31,19 @@ const AtualizarPerfil = () =>{
     }
 
    
-    const handleChangeEndereco = ({target}) => {
-        const {id, value} = target
-        setEndereco({...endereco, [id]: value})
-        console.log(endereco)
-    }
-
+   
     
     const handleChangeUserUsuario = ({target}) => {
         const {id, value} = target
         setUsuario({...usuario, [id]: value})
         console.log(usuario)
     }
+    const handleChangeEndereco = ({target}) => {
+        const {id, value} = target
+        setEndereco({...endereco, [id]: value})
+        console.log(endereco)
+    }
+
     const handleChangeMaterial = ({target}) => {
         const {id, textContent} = target
         setMaterial({...material, [id]: textContent})
@@ -121,7 +123,7 @@ const AtualizarPerfil = () =>{
                 <li style={{textTransform: "uppercase"}} className="list-group-item list-group-item-success">{lista.tipoPlastico}</li>
             </ul>
         </form>
-        <button onClick={ handleChangeMaterial} className="btn btn-danger"><Link to='/perfil'>Cancelar</Link></button>
+        <button onClick={ handleSubmitMaterial} className="btn btn-danger"><Link to='/perfil'>Cancelar</Link></button>
     </div>
     );
 }

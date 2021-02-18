@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux'
 
 
 import './cadastro.css'
@@ -8,12 +9,14 @@ import './cadastro.css'
 
 export default function FormCadastro() {
     const [usuario, setUsuario] = useState({})
-
+    const user = useSelector(state => state.user.dados)
     const history = useHistory()
-   
+    const dispatch = useDispatch()
+
     const handleChangeUsuario = ({target}) => {
         const {id, value} = target
         setUsuario({...usuario, [id]: value})
+        console.log(usuario)
  }
  const heardes={
     'Content-Type': 'application/json',
@@ -24,17 +27,23 @@ export default function FormCadastro() {
 
     const handleSubmit = (event) => {
         axios.post('http://localhost:4000/users/cad', usuario,{headers:heardes})
-        .then((result) => {
-            /*colocar um alert para o usuario antes de envialo para a home*/
-            history.push("/");
+        .then(()=>{
+            axios.get(`http://localhost:4000/users/email=${usuario.email}/senha=${usuario.senha}`)
+            .then(response=>dispatch({type: 'LOGIN', payload: response.data[0]}))
         })
-        .catch((error) => {
-           /*msg avisando*/
-         })
-         
-        
-      }
+        .then(()=>history.push("/perfil"))
+        }
 
+        
+        /*.then((result) => {
+            axios.post(`http://localhost:4000/enderecos/cad/id=${user.id}`,{headers:heardes})
+        })
+        .then((result) => {
+        axios.post(`http://localhost:4000/materiais/cad/id=${user.id}`,{headers:heardes})
+        })*/
+        
+    
+     
     return(   
     <div className="container">
         <h1>Cadastro</h1>
@@ -65,5 +74,4 @@ export default function FormCadastro() {
     )
 }
 
-/*onClick={handleNext } */
 
