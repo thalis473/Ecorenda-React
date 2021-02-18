@@ -5,7 +5,7 @@ const users = express.Router()
 
 // EXIBE USUARIOS
 users.get('/users', (req, res, next) => {
-    let sql = `SELECT usuarios.*, enderecos.* , materiais.*
+    let sql = `SELECT usuarios.id, usuarios.nome, usuarios.atribuicao, enderecos.* , materiais.*
     FROM usuarios 
     LEFT OUTER JOIN enderecos
     ON usuarios.id = enderecos.usuarioID

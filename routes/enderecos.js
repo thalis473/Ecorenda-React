@@ -14,21 +14,18 @@ enderecos.get('/enderecos', (req, res, next)=> {
 })
 
 //BUSCA POR ENDEREÇOS
-enderecos.get('/enderecos/busca', (req, res, next)=> {
+enderecos.get('/enderecos/busca/:rua', (req, res, next)=> {
     let dados = {
         cep: req.body.cep,
         estado: req.body.estado,
         bairro: req.body.bairro,
-        rua: req.body.rua
+        rua: req.params.rua
     }
     let sql = `SELECT usuarios.nome, usuarios.email, enderecos.*
     FROM usuarios 
     LEFT OUTER JOIN enderecos
     ON usuarios.id = enderecos.usuarioID WHERE
-    enderecos.cep LIKE "${dados.cep}%" OR
-    enderecos.estado LIKE "${dados.estado}%" OR
-    enderecos.bairro LIKE "${dados.bairro}%" OR
-    enderecos.rua LIKE "${dados.rua}%"`
+    enderecos.rua LIKE "%${dados.rua}%"`
     conn.query(sql, (error, result) => {
         res.json(result)
     })
