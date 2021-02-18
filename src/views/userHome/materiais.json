@@ -1,0 +1,27 @@
+[
+    {
+        "name": "Papel/Papelão",
+        "Quantidade": 10,
+        "Valor": 19,
+        "fill": "#0000FF"
+    },
+    {
+        "name": "Metal/Alumínio",
+        "Quantidade": 30,
+        "Valor": 19,
+        "fill": "#FFFF00"
+    },
+    {
+        "name": "Vidro",
+        "Quantidade": 8,
+        "Valor": 19,
+        "fill": "#008000"
+    },
+    {
+        "name": "Plástico",
+        "Quantidade": 19,
+        "Valor": 19,
+        "fill": "#FF0000"
+        
+    }
+]

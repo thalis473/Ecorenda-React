@@ -1,0 +1,17 @@
+[
+    {
+      "name": "Doador",
+      "Quantidade": 31,
+      "fill": "#3CB371"
+    },
+    {
+      "name": "Catador",
+      "Quantidade": 50,
+      "fill": "#90EE90"
+    },
+    {
+      "name": "Estabelecimentos",
+      "Quantidade": 8,
+      "fill": "#00FF7F"
+    }
+  ]

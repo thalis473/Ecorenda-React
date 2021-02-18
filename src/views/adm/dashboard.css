@@ -4,6 +4,11 @@
     display: flex;
     flex-wrap: wrap;
 }
+.view-header-adm{
+    display:flex;
+    justify-content: space-around;
+
+}
 .cardPrincipal{
     border: 1px solid white;
     box-shadow: 2px 2px 5px black;
@@ -19,6 +24,10 @@
     align-items: center;
     background-color:white;
     border-radius: 5px;
+    flex-wrap: wrap;
+    overflow: auto;
+    word-wrap: break-word;
+    /* padding:5px; */
 }
 .titleDashboard{
     text-align: center;
@@ -38,3 +47,21 @@
 .cardFooter{
     font-size: 12px;
 }
+
+/*btn*/
+.btn-print{
+    padding: 3px;
+    background-color: white;
+    border:none;
+    border-radius: 3px;
+    box-shadow: 3px 3px 10px;
+    margin:10px;    
+    width: 30px;
+    height: 30px;
+}
+.btn-print:hover{
+    cursor:pointer;
+    background-color:rgb(14, 97, 51);
+    color:white
+}
+/*btn*/

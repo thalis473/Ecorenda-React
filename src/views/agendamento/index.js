@@ -1,42 +1,35 @@
-import {useSelector} from 'react-redux'
-// import FormBuscar from '../../components/form/busca'
-import {PerfilBox} from '../../components/perfil-box'
-import './busca.css'
-import PrintIcon from '@material-ui/icons/Print'
+import React from 'react';
+import PrintIcon from '@material-ui/icons/Print';
+import CardAgendamento from '../../components/cardAgendamento';
+import './agendamento.css';
 
-import { DimensionedMap } from "../../components/maps/index";
+import data from './agendamento.json';
 
-
-export default function ViewBusca() {
-    const contatos = useSelector(state => state.contatos.dados)
-    
-    return (
+export default function Index(){
+    return(
         <div>
-            <div>
-                {/* <FormBuscar /> */}
-
-                <div className="view-mapbox">
-                    <DimensionedMap />
-                </div>
-
-                <span className="header-result-busca">
-                    <h3 className="title"> Recém Cadastrados Próximos a você</h3> 
-                    <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
-                </span>
-
-                {contatos.map(item => <PerfilBox key={item.nome} dados={item} />)}
-
-            </div> 
+            <div className='view-header-agendamento'>
+                <h2> Agendamentos</h2>
+                <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
+            </div>
+            <div className="view-agendamento">
+                {
+                    data.map((data, d) => 
+                        <CardAgendamento
+                        key={d} 
+                        hora={data.hora}    
+                        data={data.data}
+                        material={data.material}
+                        quantidade={data.quantidade}
+                        categoria={data.categoria}
+                        nome={data.nome}
+                        linkPerfil={data.linkPerfil}
+                        pontoEncontro={data.pontoEncontro}
+                        status={data.status}
+                        />     
+                    )         
+                }
+            </div>
         </div>
-    )
+    );
 }
-// import React from 'react';
-
-// export default function Index(){
-//     return(
-//         <div>
-            
-//         </div>
-
-//     );
-// }

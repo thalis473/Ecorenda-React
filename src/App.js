@@ -10,6 +10,7 @@ import ViewMenu from './views/menu'
 import UserHome from './views/userHome'
 import UserPerf from './views/userPerf'
 import Adm from './views/adm'
+import Agendamento from './views/agendamento'
 
 
 export default function App() {
@@ -23,6 +24,7 @@ export default function App() {
         <Switch>
           <Route path="/" component={ViewHome} exact/>
           <Route path="/buscar" component={ViewBusca} exact />
+          <Route path="/agendamento" component={Agendamento} exact />
           <Route path="/entrar" component={ViewEntrar} exact />
           <Route path="/error" component={ViewError} />
           <Route path={`/user`} component={UserHome} exact />

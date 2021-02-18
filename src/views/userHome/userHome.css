@@ -3,17 +3,48 @@
     flex-wrap: wrap;
     background: var(--color-background);
 }
-
-
 #container-favoritos {
     width: 100%;
 }
-
 #container-filtro {
     width: 50%;
     margin: 15px auto;
 }
 
+.view-userHome{
+    overflow:auto;
+    height: 300px;
+    background-color:rgb(215, 255, 215);
+    border-radius:5px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: center;
+    box-shadow: 3px 4px 10px;
+}
+.view-header-userHome{
+    display:flex;
+    justify-content: space-around;
+}
+
+/*btn*/
+.btn-print{
+    padding: 3px;
+    background-color: white;
+    border:none;
+    border-radius: 3px;
+    box-shadow: 3px 3px 10px;
+    margin:10px;
+    width: 30px;
+    height: 30px;
+}
+.btn-print:hover{
+    cursor:pointer;
+    background-color:rgb(14, 97, 51);
+    color:white
+}
+/*btn*/
 @media only screen and (max-width: 600px) {
     #container-filtro {
         width: 90%;

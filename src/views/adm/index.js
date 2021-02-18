@@ -1,60 +1,18 @@
 import React from 'react';
 import CardDashboard, { CardFeedback } from '../../components/cardDashboard';
 import GraficoMaterial, { GraficoUsuarios } from '../../components/graficoDashBoard';
+import PrintIcon from '@material-ui/icons/Print';
 import './dashboard.css';
+import materiais from '../userHome/materiais.json'
+import usuarios from './usuario.json'
 
 export default function Adm(){
-    const usuarios = [
-        {
-          "name": "Doador",
-          "Quantidade": 31.47,
-          "fill": "#3CB371"
-        },
-        {
-          "name": "Catador",
-          "Quantidade": 26.69,
-          "fill": "#90EE90"
-        },
-        {
-          "name": "Empresas",
-          "Quantidade": 15.69,
-          "fill": "#00FF7F"
-        },
-       
-      ]
-      const materiais = [
-        {
-          "name": "Papel/Papelão",
-          "Quantidade": 10,
-          "fill": "#0000FF"
-        },
-        {
-          "name": "Metal/Alumínio",
-          "Quantidade": 30,
-          "fill": "#FFFF00"
-        },
-        {
-          "name": "Vidro",
-          "Quantidade": 8,
-          "fill": "#008000"
-        },
-        {
-          "name": "Plástico",
-          "Quantidade": 19,
-          "fill": "#FF0000"
-        },
-        {
-            "name": "Eletrônico",
-            "Quantidade": 21,
-            "fill": "#00FF7F"
-          }
-       
-      ]
-    
     return(
         <div className="container-fluid ">
-            <h2 className="titleDashboard">DashBoard ADM</h2>
-           
+            <div className='view-header-adm'>
+                <h2 className="titleDashboard">Painel de Controle Administrativo</h2>
+                <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
+            </div>
             <div className="view-adm-cards">{/* primeira linha*/}
                 <CardDashboard title="Doadores" quantidade="10"/>
                 <CardDashboard title="Catadores" quantidade="50"/>
