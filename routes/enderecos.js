@@ -60,6 +60,22 @@ enderecos.delete('/enderecos/del/id=:id', (req, res, next) => {
     })
 })
 
+/*Teste*/
+enderecos.post('/alterarenderecos/:id', (req, res, next) => {
+    let id = req.params.id
+    let dados = {
+      // cep: req.body.cep,
+         estado: req.body.estado,
+        bairro: req.body.bairro,
+        rua: req.body.rua,
+         num: req.body.num,
+         complemento: req.body.complemento
+    }
+    conn.query(`UPDATE enderecos set? WHERE usuarioId=${id}`, dados, () => {
+        console.log(id)
+        res.json({msm: `registro ${id} alterado para...`, dado: dados})
+    })
+})
 
 
 
