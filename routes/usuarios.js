@@ -29,7 +29,7 @@ users.get('/users/email=:email/senha=:senha', (req, res, next) => {
     WHERE email = "${dados.email}"
     AND senha = MD5('${dados.senha}')`
     conn.query(sql, (error, result) => {
-        res.json(result)
+       res.json(result)
     })
 })
 
@@ -44,7 +44,8 @@ users.post('/users/cad', (req, res, next) => {
     let sql = `INSERT INTO usuarios(nome, email, senha, atribuicao)
     VALUES ('${dados.nome}', '${dados.email}', md5('${dados.senha}'), '${dados.atribuicao}')`
     conn.query(sql, (error, result) => {
-        res.json([{msg: 'usuario cadastrado!'},{dados: dados}, {log: result}])
+       /* res.json([{msg: 'usuario cadastrado!'},{dados: dados}, {log: result}])*/
+       res.json({msg:'usuario cadastrado'})
     })
 })
 
@@ -65,6 +66,17 @@ users.put('/users/id=:id', (req, res, next) => {
     }
     conn.query(`UPDATE usuarios set? WHERE id=${dados.id}`, dados, () => {
         res.json({msm: `registro ${dados.id} alterado para...`, dado: dados})
+    })
+})
+/*Teste*/
+users.post('/alterar/:id', (req, res, next) => {
+    let id = req.params.id
+    let dados = {
+        nome: req.body.nome,
+        email: req.body.email,
+    }
+    conn.query(`UPDATE usuarios set? WHERE id=${id}`, dados, () => {
+        res.json({msm: `registro ${id} alterado para...`, dado: dados})
     })
 })
 
