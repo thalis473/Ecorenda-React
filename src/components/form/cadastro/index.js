@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 
 import './cadastro.css'
@@ -9,7 +9,6 @@ import './cadastro.css'
 
 export default function FormCadastro() {
     const [usuario, setUsuario] = useState({})
-    const user = useSelector(state => state.user.dados)
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -33,16 +32,6 @@ export default function FormCadastro() {
         })
         .then(()=>history.push("/perfil"))
         }
-
-        
-        /*.then((result) => {
-            axios.post(`http://localhost:4000/enderecos/cad/id=${user.id}`,{headers:heardes})
-        })
-        .then((result) => {
-        axios.post(`http://localhost:4000/materiais/cad/id=${user.id}`,{headers:heardes})
-        })*/
-        
-    
      
     return(   
     <div className="container">

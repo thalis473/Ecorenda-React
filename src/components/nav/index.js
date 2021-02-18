@@ -21,7 +21,7 @@ export function Navbar() {
 export function NavbarUser() {
     return (
         <nav>
-            <Link to="/"><HomeIcon /><br/>Inicio</Link>
+            <Link to="/user"><HomeIcon /><br/>Inicio</Link>
             <Link to="/buscar"><SearchIcon /><br/>Buscar</Link>
             <Link to="/menu"><MenuIcon /><br/>Menu</Link>
         </nav>

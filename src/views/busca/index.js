@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux'
 import axios from 'axios'
-import {useEffect, useState} from "react"
+import {useEffect} from "react"
 // import FormBuscar from '../../components/form/busca'
 import {PerfilBox} from '../../components/perfil-box'
 import './busca.css'
@@ -37,7 +37,7 @@ export default function ViewBusca() {
                     <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
                 </span>
 
-                {contatos.map(item => item.atribuicao === "catador" ? null : <PerfilBox key={item.nome} dados={item} />)}
+                {contatos.map(item => item.atribuicao === "catador" ? null : <PerfilBox key={item} dados={item} />)}
 
             </div> 
         </div>
