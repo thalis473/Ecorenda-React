@@ -74,3 +74,20 @@
     margin-bottom: 10px;
     text-transform: uppercase;
 }
+
+/*img home*/
+.imgCarrossel{
+    max-height: 250px;
+    justify-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+@media only screen and (max-width: 770px) {
+    .imgCarrossel{
+        width: 90%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

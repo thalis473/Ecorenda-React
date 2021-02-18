@@ -1,8 +1,11 @@
 import DirectionsWalkIcon from '@material-ui/icons/DirectionsWalk';
 import EcoIcon from '@material-ui/icons/Eco';
 import PersonPinIcon from '@material-ui/icons/PersonPin';
-
-
+import  home1  from '../../img/home/home1.jpeg';
+import  home2  from '../../img/home/home2.jpeg';
+import  home3  from '../../img/home/home3.jpeg';
+import  home4  from '../../img/home/home4.jpeg';
+import  home5  from '../../img/home/home5.jpeg';
 import './home.css'
 
 export default function ViewHome() {
@@ -12,6 +15,22 @@ export default function ViewHome() {
                 <h1>Seja bem vindo ao <span className="destaque">Eco<span className="destaque-alt">Renda!</span></span></h1>
                 <p>Otimizando o trabalho dos catadores de materiais recicláveis</p>
             </section>
+            <div id="carouselExampleSlidesOnly" className="carousel slide" data-ride="carousel">
+                <div className="carousel-inner">
+                    <div className="carousel-item active imgCarrossel">
+                        <img className=" imgCarrossel" src={ home1 } alt="First slide"/>
+                    </div>
+                    <div className="carousel-item imgCarrossel">
+                        <img className=" imgCarrossel" src={ home2 } alt="Second slide"/>
+                    </div>
+                    <div className="carousel-item  imgCarrossel">
+                        <img className=" imgCarrossel" src={ home4 } alt="First slide"/>
+                    </div>
+                    <div className="carousel-item imgCarrossel">
+                        <img className=" imgCarrossel" src={ home5 } alt="Second slide"/>
+                    </div>
+                </div>
+            </div>
 
             <section>
                 <div>
@@ -47,6 +66,9 @@ export default function ViewHome() {
                     agendar a coleta. Tornando o processo de coleta
                     mais rápido e eficaz .
                 </p>
+                <div>
+                    <img className=" imgCarrossel" src={ home3 } alt="Third slide"/>
+                </div>
                 <div className="agentes-blocos-area">
                     <span className="agentes-bloco">
                         <h3><PersonPinIcon/><br/>Doador</h3>
