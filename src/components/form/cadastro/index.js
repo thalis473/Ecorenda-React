@@ -1,33 +1,69 @@
-import React from 'react';
+import {useState} from 'react'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom';
+
+
 import './cadastro.css'
-import Autorizacao from './autorizacao/index'
 
 
 export default function FormCadastro() {
+    const [usuario, setUsuario] = useState({})
+
+    const history = useHistory()
+   
+    const handleChangeUsuario = ({target}) => {
+        const {id, value} = target
+        setUsuario({...usuario, [id]: value})
+ }
+ const heardes={
+    'Content-Type': 'application/json',
+    'Authorization': 'JWT fefege...'
+}
+
+   
+
+    const handleSubmit = (event) => {
+        axios.post('http://localhost:4000/users/cad', usuario,{headers:heardes})
+        .then((result) => {
+            /*colocar um alert para o usuario antes de envialo para a home*/
+            history.push("/");
+        })
+        .catch((error) => {
+           /*msg avisando*/
+         })
+         
+        
+      }
+
     return(   
     <div className="container">
         <h1>Cadastro</h1>
-        <form className="container form-group">
-            <div className="from-row">
-                <label htmlFor="nome">Seu Nome</label>
-                <input type="text" className="form-control col-sm-6" id="nome" placeholder="Nome"/>
+        <div className="container form-group">
+
+        <label htmlFor="nome">Seu Nome</label>
+                <input onChange={ handleChangeUsuario} type="text" className="form-control col-sm-6" id="nome" placeholder="Nome"/>
 
                 <label htmlFor="email">E-mail</label>
-                <input type="text"  id="email" className="form-control col-sm-3"/>
+                <input onChange={ handleChangeUsuario} type="text"  id="email" className="form-control col-sm-3"/>
 
                 <label htmlFor="senha">Senha</label>
-                <input type="password"  id="senha" className="form-control col-sm-3"/>                       
+                <input onChange={ handleChangeUsuario} type="password"  id="senha" className="form-control col-sm-3"/>                       
 
                 <label htmlFor="atribuicao">Atribuição</label>
-                <select id="atribuicao" className="form-control col-sm-3">
+                <select onChange={ handleChangeUsuario} id="atribuicao" className="form-control col-sm-3">
                     <option>SELECIONE</option>
                     <option value="catador">Catador</option>
                     <option value="doador">Doador</option>
                     <option value="estabelecimento">Estabelecimento</option>
-                </select>  
-            </div>
-            
-        </form>
+                </select>
+        
+         
+           
+        </div>
+       <button onClick={ handleSubmit } className="btn btn-success">Cadastrar</button>
     </div>
     )
 }
+
+/*onClick={handleNext } */
+
