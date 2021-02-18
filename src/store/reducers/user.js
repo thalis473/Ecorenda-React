@@ -15,12 +15,13 @@ const INITIAL_STATE = {
         },
         desc : "Sou um cara muito esforçado",
         materiais : [
-            {id: 1, nome: "papel", peso : "", valor : ""},
-            {id: 2, nome: "alumínio", peso : "", valor : ""},
-            {id: 3, nome: "plastico", peso : "", valor : ""},
-            {id: 4, nome: "ferro", peso : "", valor : ""},
-            {id: 5, nome: "madeira", peso : "", valor : ""},
-            {id: 6, nome: "orgânico", peso : "", valor : ""}
+            {id: 1, nome: "papel", peso : 2, valor : "", fill:"#0000FF"},
+            {id: 2, nome: "alumínio", peso : 25, valor : "", fill: "#FFFF00"},
+            {id: 3, nome: "plastico", peso : 14, valor : "", fill: "#FF0000"},
+            {id: 3, nome: "vidro", peso : 14, valor : "", fill: "#008000"},
+            // {id: 4, nome: "ferro", peso : 1, valor : ""},
+            // {id: 5, nome: "madeira", peso : 3, valor : ""},
+            // {id: 6, nome: "orgânico", peso : 9, valor : ""}
         ],
         favoritos : [],
         agendamentos : [

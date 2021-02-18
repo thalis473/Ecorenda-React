@@ -11,6 +11,7 @@ import UserHome from './views/userHome'
 import UserPerf from './views/userPerf'
 import Adm from './views/adm'
 import Agendamento from './views/agendamento'
+import AtualizarPerfil from './views/userPerf/alterarperfil'
 
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/error" component={ViewError} />
           <Route path={`/user`} component={UserHome} exact />
           <Route path="/perfil" component={UserPerf} exact />
+          <Route path="/atualizar" component={AtualizarPerfil} exact />
           <Route path='/menu' component={ViewMenu} />
           <Route path='/adm' component={Adm} />
         </Switch>

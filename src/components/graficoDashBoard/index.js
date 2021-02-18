@@ -8,7 +8,7 @@ export default function GraficoMaterial(props){
         <ResponsiveContainer height={300} className="boxGraph">
             <BarChart width={730} height={250} data={props.data}>
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="nome" />
                 <YAxis />
                 <Tooltip />
                 <Legend />

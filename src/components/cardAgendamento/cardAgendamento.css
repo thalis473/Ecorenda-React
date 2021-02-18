@@ -13,40 +13,37 @@
     box-shadow: 2px 3px 20px var(--color-primary);
 }
 .card-border-aluminio{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-top-style:solid;
-    border-top-color:yellow;
-    border-top-width:3px;
+    background-color: yellow;
+    color:black
+}
+.card-border-aluminio .title{
+    color:black;
+}
+.card-border-aluminio a{
+    color:black;
+}
+.card-border-aluminio .text-status{
+    color:black;
+    border:1px solid black;
 }
 .card-border-vidro{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-top-style:solid;
-    border-top-color:green;
-    border-top-width:3px;
+    background-color: green;
+    color:white
 }
 .card-border-papel{
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-top-style:solid;
-    border-top-color:blue;
-    border-top-width:3px;
+    background-color: blue;
+    color:white
 }
 .card-border-plastico{
-    /* border:2px solid red; */
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    border-top-style: groove;
-    border-top-color:red;
-    border-top-width:3px;
+    background-color: red;
+    color:white
 }
 
 .title{
     text-align:center;
     font-size: 18px;
     font-weight: bold;
-    color:var(--color-primary);
+    color:white
 }
 
 .text-status{
@@ -54,24 +51,27 @@
     color:var(--color-title);
     text-align:center;
     overflow: hidden;
+    color:white;
+    border:1px solid white;
 }
 .status-confirmado, .status-concluido{
-    background-color:var(--color-title);
-    color:white;
+    color:var(--color-title);
 }
 .status-pendente{
-    background-color:var(--color-alternate);
-    color:white;
+    color:var(--color-alternate);
 }
 .status-cancelado{
     color:white;
-    background-color: red;
+    border:1px solid white;
 }
 a{
     text-decoration:none;
     font-weight: bold;
-    color:var(--color-primary);
+    color:white;
 
+}
+a:hover{
+    background-color: white;
 }
 @media only screen and (max-width: 600px) {
     .card-agendamento{
