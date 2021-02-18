@@ -28,10 +28,9 @@ const INITIAL_STATE = {
 }
 
 export default function contatos(state = INITIAL_STATE, action) {
-    switch (action.type) {
-        case 'bla':
-            return state
-        default:
-            return state
+    if(action.type === "CARREGAR") {
+        return {dados: action.payload}
+    } else {
+        return state
     }
 }
