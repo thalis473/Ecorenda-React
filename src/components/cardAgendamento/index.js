@@ -4,7 +4,7 @@ import React, {useRef} from 'react';
 const CardAgendamento = (props)=> {
     
     const divCard = useRef();
-     var material =  'card-agendamento';
+    var material =  'card-agendamento';
     var status =  'text-status';
 
     const handleMaterial = () =>{
@@ -27,28 +27,28 @@ const CardAgendamento = (props)=> {
         }
     }
 
-    const handleStatus = () => {
+    // const handleStatus = () => {
        
-        switch(props.status){
-            case 'CONFIRMADO':
-               status += ' status-confirmado';
-                break;
-            case 'PENDENTE':
-                status += ' status-pendente';  
-                break;
-            case 'CANCELADO':
-                status += ' status-cancelado';  
-                break;
-            case 'CONCLUIDO':
-                status +=' status-concluido';   
-                break;
-            default:
-                status += '';   
-                break;
-        }
-    }
+    //     switch(props.status){
+    //         case 'CONFIRMADO':
+    //            status += ' status-confirmado';
+    //             break;
+    //         case 'PENDENTE':
+    //             status += ' status-pendente';  
+    //             break;
+    //         case 'CANCELADO':
+    //             status += ' status-cancelado';  
+    //             break;
+    //         case 'CONCLUIDO':
+    //             status +=' status-concluido';   
+    //             break;
+    //         default:
+    //             status += '';   
+    //             break;
+    //     }
+    // }
      
-    handleStatus();
+    // handleStatus();
     handleMaterial();
 
     return(

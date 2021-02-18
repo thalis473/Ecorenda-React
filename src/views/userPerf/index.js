@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux'
 // import MaterialCard from '../../components/materialCard'
-
+import { Link } from 'react-router-dom'
 import './userPerf.css'
 
 export default function UserPerf(props) {
@@ -14,24 +14,25 @@ export default function UserPerf(props) {
                     <div>
                         <span>{user.nome}</span>
                         <span>Atribuição: {user.atribuicao}</span>
+                        <button><Link to='/atualizar'>Atualize seu cadastro</Link></button>
                     </div>
                 </div>
                 <div className="info-c">
                     <span>Informações de contato</span>
-                    <span>telefone: {user.telefone}</span>
-                    <span>celular: {user.celular}</span>
-                    <span>email: {user.email}</span>
+                    <span>Telefone: {user.telefone}</span>
+                    <span>Celular: {user.celular}</span>
+                    <span>E-mail: {user.email}</span>
                 </div>
             </section>
 
             <section>
                 <div>
                     <h2>Localização</h2>
-                    <span>cep: {user.cep}</span>
-                    <span>estado: {user.estado}</span>
-                    <span>bairro: {user.bairro}</span>
-                    <span>rua: {user.rua}</span>
-                    <span>num: {user.num}</span>
+                    <span>CEP: {user.cep}</span>
+                    <span>Estado: {user.estado}</span>
+                    <span>Bairro: {user.bairro}</span>
+                    <span>Rua: {user.rua}</span>
+                    <span>Num: {user.num}</span>
                 </div>
 
                 <div>

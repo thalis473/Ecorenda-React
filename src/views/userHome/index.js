@@ -1,3 +1,5 @@
+import {useSelector} from 'react-redux'
+
 import './userHome.css'
 import GraficoMaterial from '../../components/graficoDashBoard'
 import {GraficoDesempenho} from '../../components/graficoDashBoard'
@@ -5,7 +7,6 @@ import CardAgendamento from '../../components/cardAgendamento'
 import PrintIcon from '@material-ui/icons/Print';
 
 import data from '../agendamento/agendamento.json';
-import materiais from './materiais.json';
 import desempenho from './desempenho.json';
 
 
@@ -16,6 +17,8 @@ import print from '../../components/pdfmake/impressao.json';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default function UserHome() {
+    const user = useSelector(state => state.user.dados)
+
     const header = [
         { text: 'Nome', bold: true, fontSize: 9, margin: [0, 4, 0, 0] },
         { text: 'Bairro', bold: true, fontSize: 9, margin: [0, 4, 0, 0] },
@@ -44,7 +47,7 @@ export default function UserHome() {
     <div className="container-fluid">
 
             <div className='view-header-userHome'>
-                <h1 className="titleDashboard">Olá, Rayssa. Bem vindo ao seu painel</h1>
+                <h1 className="titleDashboard">Olá, { user.nome === null ? 'Visitante' : user.nome }. Bem vindo ao seu painel</h1>
                 <button onClick={visualizarImpressao} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
                 {/* <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button> */}
             </div>
@@ -54,7 +57,8 @@ export default function UserHome() {
                 <hr/>
                 <small className="subtitleDashboard">Nos últimos 30 dias</small>
                 
-                <GraficoMaterial data={materiais} legenda="Quantidade" cor="#2E8B57"/>
+                <GraficoMaterial data={user.materiais} legenda="peso" cor="#2E8B57"/>
+                {/* <GraficoMaterial data={materiais} legenda="Quantidade" cor="#2E8B57"/> */}
             </div>
 
             <div >{/**segunda linha */}
