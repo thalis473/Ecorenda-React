@@ -35,18 +35,18 @@ enderecos.get('/enderecos/busca', (req, res, next)=> {
 })
 
 // CADASTRAR UM ENDEREÇO
-enderecos.post('/enderecos/cad', (req, res, next) => {
+enderecos.post('/enderecos/cad/id=:usuarioID', (req, res, next) => {
     let dados = {
-        usuarioID: req.body.usuarioID,
-        cep: req.body.cep,
-        estado: req.body.estado,
-        bairro: req.body.bairro,
-        rua: req.body.rua,
-        num: req.body.num,
-        complemento: req.body.complemento,
+        usuarioID: req.params.usuarioID,
+        // cep: req.body.cep,
+        // estado: req.body.estado,
+        // bairro: req.body.bairro,
+        // rua: req.body.rua,
+        // num: req.body.num,
+        // complemento: req.body.complemento,
     }
-    let sql = `INSERT INTO enderecos SET?`
-    conn.query(sql, dados, (error, result)=> {
+    let sql = `INSERT INTO enderecos(usuarioID) VALUES(${dados.usuarioID})`
+    conn.query(sql, (error, result)=> {
         res.json([{msg: 'endereço cadastrado!'},{dados}, {log: result}])
     })
 })
