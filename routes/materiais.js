@@ -31,26 +31,26 @@ materiais.get('/materiais/busca/tipo=:tipo/tabela=:tabela', (req, res, next)=> {
 })
 
 //CADASTRO DE MATERIAIS
-materiais.post('/materiais/cadastro', (req, res, next)=> {
+materiais.post('/materiais/cad/id=:usuarioID', (req, res, next)=> {
     let dados = {
-    usuarioId: req.body.usuarioId,
+    usuarioId: req.params.usuarioID,
 
-    nomeAluminio: req.body.nomeAluminio,
-    tipoAluminio: req.body.tipoAluminio,
-    pesoAluminio: req.body.pesoAluminio,
-    valorAluminio: req.body.valorAluminio,
+    // nomeAluminio: req.body.nomeAluminio,
+    // tipoAluminio: req.body.tipoAluminio,
+    // pesoAluminio: req.body.pesoAluminio,
+    // valorAluminio: req.body.valorAluminio,
 
-    nomeCobre: req.body.nomeCobre,
-    tipoCobre: req.body.tipoCobre,
-    pesoCobre: req.body.pesoCobre,
-    valorCobre: req.body.valorCobre,
+    // nomeCobre: req.body.nomeCobre,
+    // tipoCobre: req.body.tipoCobre,
+    // pesoCobre: req.body.pesoCobre,
+    // valorCobre: req.body.valorCobre,
 
-    nomePlastico: req.body.nomePlastico,
-    tipoPlastico: req.body.tipoPlastico,
-    pesoPlastico: req.body.pesoPlastico,
-    valorPlastico: req.body.valorPlastico
+    // nomePlastico: req.body.nomePlastico,
+    // tipoPlastico: req.body.tipoPlastico,
+    // pesoPlastico: req.body.pesoPlastico,
+    // valorPlastico: req.body.valorPlastico
     }
-    conn.query(`INSERT INTO materiais SET?`, dados, (erro, result)=> {
+    conn.query(`INSERT INTO materiais(usuarioID) VALUES(${dados.usuarioId})`, (erro, result)=> {
         res.json([{msg: 'material cadastrado!'},{dados: dados}, {log: result}])
     })
 })
