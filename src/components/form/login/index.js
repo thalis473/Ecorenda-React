@@ -1,10 +1,15 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom';
+
 
 export default function FormLogin(props) {
   const [login, setLogin] = useState({})
   const dispatch = useDispatch()
+
+  const history = useHistory();
+
 
   const handleChange = ({target}) => {
     const {name, value} = target
@@ -12,10 +17,14 @@ export default function FormLogin(props) {
   }
 
   const conn = ()=> axios.get(`http://localhost:4000/users/email=${login.email}/senha=${login.senha}`)
+  
+  
   const handleSubmit = async (event) => {
     event.preventDefault()
     const response = await conn()
     dispatch({type: 'LOGIN', payload: response.data[0]})
+    await history.push("/user")
+
   }
 
     return(  
@@ -36,7 +45,7 @@ export default function FormLogin(props) {
         <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu e-mail, com ninguém.</small>
         
         <label htmlFor="senha">Senha</label>
-        <input onChange={handleChange} type="password" className="form-control" name="senha" placeholder="Senha"/>
+        <input onChange={handleChange} type="current-password" className="form-control" name="senha" placeholder="Senha"/>
         <br/><br/><br/>
         <button onClick={handleSubmit} className="btn btn-success">Entrar</button>
       </form>  

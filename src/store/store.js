@@ -3,12 +3,12 @@ import {composeWithDevTools} from 'redux-devtools-extension'
 
 import user from './reducers/user'
 import contatos from './reducers/contatos'
-import formCadastro from './reducers/cadastro'
+import cadastro from './reducers/cadastro'
 
 const store = createStore(combineReducers({
     user,
     contatos,
-    formCadastro
+    cadastro
 }), composeWithDevTools())
 
 export default store

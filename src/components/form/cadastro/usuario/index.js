@@ -4,12 +4,15 @@ import {useState} from 'react'
 export default function CadUsuario() {
     const [usuario, setUsuario] = useState({})
     
+   
 
     const handleChange = ({target}) => {
         const {id, value} = target
         setUsuario({...usuario, [id]: value})
+        .then(dispatch({type: 'cadastro', dados:usuario}))
         console.log(usuario)
     }
+   
 
 
 
