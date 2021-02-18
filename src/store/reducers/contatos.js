@@ -30,7 +30,11 @@ const INITIAL_STATE = {
 export default function contatos(state = INITIAL_STATE, action) {
     if(action.type === "CARREGAR") {
         return {dados: action.payload}
-    } else {
+    }
+    else if(action.type === "BUSCAR") {
+        return {dados: action.payload}
+    }
+    else {
         return state
     }
 }

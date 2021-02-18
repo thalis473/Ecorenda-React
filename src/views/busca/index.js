@@ -1,7 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux'
 import axios from 'axios'
-import {useEffect} from "react"
-// import FormBuscar from '../../components/form/busca'
+import { useEffect} from "react"
 import {PerfilBox} from '../../components/perfil-box'
 import './busca.css'
 import PrintIcon from '@material-ui/icons/Print'
@@ -13,20 +12,19 @@ export default function ViewBusca() {
     const dispatch = useDispatch()
     const contatos = useSelector(state => state.contatos.dados)
     
-
+    
     const get = async () => await axios.get("http://localhost:4000/users")
     useEffect(async ()=> {
         let response = await get()
+        console.log(response.data)
         dispatch({type: "CARREGAR", payload: response.data})
         
     }, [])
-    
-    
+
 
     return (
         <div>
             <div>
-                {/* <FormBuscar /> */}
 
                 <div className="view-mapbox">
                     <DimensionedMap />
@@ -37,7 +35,7 @@ export default function ViewBusca() {
                     <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
                 </span>
 
-                {contatos.map(item => item.atribuicao === "catador" ? null : <PerfilBox key={item} dados={item} />)}
+                {contatos.map(item => item.atribuicao === "catador" ? null : <PerfilBox key={item.id} dados={item} />)}
 
             </div> 
         </div>
