@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import {useSelector} from 'react-redux'
+import React, { useState, useEffect } from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import './userPerf.css'
 import { Link } from 'react-router-dom'
 import axios from "axios"
@@ -11,6 +11,12 @@ const AtualizarPerfil = () =>{
     const [lista, setLista] = useState({})
 
     const user = useSelector(state => state.user.dados)
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
+        .then(response => dispatch({type: 'LOGIN', payload: response.data[0]}))
+    },[])
     
     const heardes={
         'Content-Type': 'application/json',
@@ -19,15 +25,23 @@ const AtualizarPerfil = () =>{
    
     /*envio Usuario*/
     const handleSubmitUsuario = (event) => {
+        event.preventDefault()
         axios.post(`http://localhost:4000/alterar/${user.id}`,usuario,{headers:heardes})
+        .then(alert("Dados pessoais alterados com sucesso!"))
+        
+        
     }
         /*envio endereços*/
     const handleSubmitEndereco = (event) => {
+        event.preventDefault()
         axios.post(`http://localhost:4000/alterarenderecos/${user.id}`, endereco,{headers:heardes})
+        .then(alert("Endereço alterado com sucesso!"))
     }
         /*envio material*/
     const handleSubmitMaterial = (event) => {
+        event.preventDefault()
         axios.post('http://localhost:4000/users/cad', material,{headers:heardes})
+        .then(alert("Materiais atualizados!"))
     }
 
    
@@ -65,7 +79,10 @@ const AtualizarPerfil = () =>{
                     <input onChange={handleChangeUserUsuario} type="text" className="form-control col-sm-9 " id="nome" placeholder={user.nome}/>
 
                     <label htmlFor="email">E-mail</label>
-                    <input onChange={handleChangeUserUsuario} type="text"   id="email" className="form-control col-sm-9"/>
+                    <input onChange={handleChangeUserUsuario} type="text" id="email" className="form-control col-sm-9" value={user.email} disabled/>
+
+                    <label htmlFor="email">Senha</label>
+                    <input onChange={handleChangeUserUsuario} type="password" id="senha" className="form-control col-sm-9" value={user.senha} disabled/>
 
                     <label htmlFor="atribuicao">Atribuição</label>
                     <input onChange={handleChangeUserUsuario} type="text" value={user.atribuicao}  id="atribuicao" className="form-control col-sm-9" disabled/>
@@ -79,21 +96,21 @@ const AtualizarPerfil = () =>{
             <div className="form-group">
                 <label htmlFor="estado">Estado</label>
                 <select onChange={handleChangeEndereco} id="estado" className="form-control col-sm-3">
-                    <option>SELECIONE</option>
+                    <option value="rj">SELECIONE</option>
                     <option value="rj" >Rio de janeiro</option>
                 </select>
 
                 <label htmlFor="bairro">Bairro</label>
-                <input onChange={handleChangeEndereco} type="text"  id="bairro" className="form-control col-sm-3"/>
+                <input onChange={handleChangeEndereco} type="text"  id="bairro" className="form-control col-sm-3" placeholder={user.bairro}/>
 
                 <label htmlFor="rua">Rua</label>
-                <input onChange={handleChangeEndereco} type="text"  id="rua" className="form-control col-sm-3"/>
+                <input onChange={handleChangeEndereco} type="text"  id="rua" className="form-control col-sm-3" placeholder={user.rua}/>
 
                 <label htmlFor="num">Número</label>
-                <input onChange={handleChangeEndereco} type="text"  id="num" className="form-control col-sm-3"/>
+                <input onChange={handleChangeEndereco} type="text"  id="num" className="form-control col-sm-3" placeholder={user.num}/>
 
                 <label htmlFor="complemento">Complemento</label>
-                <input onChange={handleChangeEndereco} type="text"  id="complemento" className="form-control col-sm-3"/>
+                <input onChange={handleChangeEndereco} type="text"  id="complemento" className="form-control col-sm-3" placeholder={user.complemento}/>
             </div>
             <button onClick={handleSubmitEndereco} className="btn btn-success">Salvar Endereço</button>
         </form>

@@ -1,4 +1,6 @@
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {useEffect} from 'react'
+import axios from 'axios'
 
 import './userHome.css'
 import GraficoMaterial from '../../components/graficoDashBoard'
@@ -18,6 +20,12 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default function UserHome() {
     const user = useSelector(state => state.user.dados)
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
+        .then(response => dispatch({type: 'LOGIN', payload: response.data[0]}))
+    },[])
 
     const header = [
         { text: 'Nome', bold: true, fontSize: 9, margin: [0, 4, 0, 0] },

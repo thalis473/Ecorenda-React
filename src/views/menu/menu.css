@@ -1,0 +1,40 @@
+.section-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+}
+
+.section-menu div {
+    min-width: 10%;
+}
+
+.section-menu div h4 {
+    margin: 20px 0;
+    padding: 5px;
+    color: var(--color-primary);
+    text-shadow: 0xp 0px 3px black;
+    border-radius: 5px;
+    transition: .2s;
+}
+
+.section-menu div h4:hover {
+    box-shadow: 0px 0px 3px black;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    text-shadow: 0xp 0px 3px black;
+}
+
+.section-menu div h4 a {
+    display: inline-block;
+    min-width: 200px;
+}
+
+
+/* @media only screen and (min-width: 600px) {
+    .section-menu div {
+        min-width: 40%;
+    } 
+} */

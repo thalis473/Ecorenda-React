@@ -14,7 +14,7 @@ export default function UserPerf(props) {
                     <div>
                         <span>{user.nome}</span>
                         <span>Atribuição: {user.atribuicao}</span>
-                        <button><Link to='/atualizar'>Atualize seu cadastro</Link></button>
+                        <button className="rota-alterar"><Link to='/atualizar'>Atualize seu cadastro</Link></button>
                     </div>
                 </div>
                 <div className="info-c">
