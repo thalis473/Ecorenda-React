@@ -13,10 +13,11 @@ agendamento.get('/agendamento', (req, res, next)=> {
 //BUSCA POR ENDEREÇOS
 agendamento.get('/agendamento/busca', (req, res, next)=> {
     
-    let sql = `select agendamentos.*, usuarios.nome as nomeDoador, usuarios.nome as nomeCatador from agendamentos 
-    left join usuarios as catador on catador.id = agendamentos.catador
-    inner join usuarios as doador on doador.id = agendamentos.doador
-    `
+    let sql = `select agendamentos.*, doador.nome as nomeDoador, catador.nome as nomeCatador
+    from agendamentos
+   left join usuarios as doador on doador.id = agendamentos.doador
+   left join usuarios as catador on catador.id = agendamentos.catador
+   `
     conn.query(sql, (error, result) => {
         res.json(result)
     })
