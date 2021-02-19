@@ -1,5 +1,6 @@
 import React from 'react';
 import './contato.css';
+import logo from '../../img/icons/ecorenda.png';
 
 const Contato = () => {
     return(
@@ -40,7 +41,7 @@ const Contato = () => {
                 </form>
                 <div>
                     <h5>Siga nosso Instagram</h5><small>Clique na Imagem</small>
-                    
+                    <img src={logo} alt="logo do EcoRenda" width='100px'/>    
 
                 </div>
             </div>
