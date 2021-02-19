@@ -22,11 +22,11 @@ export default function FormLogin(props) {
   const handleSubmit = async (event) => {
     event.preventDefault()
      const response = await conn()
+     console.log(response)
      const response1 = await material()
      const dados =[response.data[0],response1.data]
     dispatch({type: 'LOGIN', payload: dados})
     await history.push("/user")
-
   }
        
     return(  

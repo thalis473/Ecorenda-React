@@ -1,5 +1,6 @@
 import { Switch, Route } from 'react-router-dom'
 import {useSelector} from 'react-redux'
+
 import Body from './components/body'
 import {Navbar, NavbarUser} from './components/nav'
 import {Header} from './components/header'
@@ -18,6 +19,7 @@ import ViewContato from './views/contato'
 
 export default function App() {
   const user = useSelector(state => state.user.dados[0])
+
 
   return (
     <div className="App">
