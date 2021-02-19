@@ -53,12 +53,12 @@ const CardAgendamento = (props)=> {
 
     return(
         <>
-            <div ref={divCard} id="card-agendamento" className={material}> 
+            <div ref={divCard} id="card-agendamento" className={material+' card-border-aluminio'}> 
                 <span className="title"> {props.hora} - {props.data}</span>
                 {/* <span aria-hidden="true">&times;</span> */}
                 <br/>
-                <span> {props.material} : {props.quantidade} </span><br/>
-                <span > {props.nomeDoador} </span><br/>
+                <span> {props.material} : {props.quantidade}KG </span><br/>
+                <span > Doador: {props.nome} </span><br/>
                 <span > {props.nomeCatador} </span><br/>
                 {/* <a className="a-perfil" href={props.linkPerfil} rel="noreferrer noopener" target="_blank"><span title="Ver Perfil"> {props.categoria} : {props.nome} </span></a><br/> */}
                 <span> Ponto de Encontro : {props.pontoEncontro} </span><br/>

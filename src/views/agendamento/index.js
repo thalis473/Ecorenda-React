@@ -7,9 +7,9 @@ import './agendamento.css';
 import data from './agendamento.json';
 
 export default function Index(){
-    const agendamento = useSelector(state => state.user.dados[1])
-    const usuario = useSelector(state => state.user.dados[0])
-    console.log(agendamento)
+    const agendamentos = useSelector(state => state.user.dados[1])
+   
+    console.log(agendamentos)
     return(
         <div>
             <div className='view-header-agendamento'>
@@ -18,14 +18,14 @@ export default function Index(){
             </div>
             <div className="view-agendamento">
                 {
-                    agendamento.map((agendamento, d) => 
+                    agendamentos.map((agendamento, d) => 
                         <CardAgendamento
                         key={agendamento.idA} 
                         hora={agendamento.hora}    
                         data={agendamento.data}
                         material={agendamento.material}
                         quantidade={agendamento.quantidade}
-                        nome={agendamento.doador}
+                        nome={agendamento.nomeDoador}
                         pontoEncontro={agendamento.localizacao}
                         status={agendamento.status}
                         />     
