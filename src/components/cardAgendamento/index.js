@@ -9,16 +9,16 @@ const CardAgendamento = (props)=> {
 
     const handleMaterial = () =>{
         switch(props.material){
-            case 'Alumínio':
+            case 'Alumínio' || 'Aluminio' || 'alumínio' || 'aluminio' || 'Cobre' || 'cobre':
                 material +=  ' card-border-aluminio';
                 break;
-            case 'Vidro':
+            case 'Vidro' || 'vidro':
                 material +=' card-border-vidro';  
                 break;
-            case 'Papel':
+            case 'Papel' || 'papel':
                 material +=  ' card-border-papel';  
                 break;
-            case 'Plástico':
+            case 'Plástico' || 'Plastico' || 'plástico' || 'plastico':
                 material += ' card-border-plastico';   
                 break;
             default:
@@ -55,15 +55,24 @@ const CardAgendamento = (props)=> {
         <>
             <div ref={divCard} id="card-agendamento" className={material}> 
                 <span className="title"> {props.hora} - {props.data}</span>
-                <span aria-hidden="true">&times;</span>
+                {/* <span aria-hidden="true">&times;</span> */}
                 <br/>
                 <span> {props.material} : {props.quantidade} </span><br/>
-                <a className="a-perfil" href={props.linkPerfil} rel="noreferrer noopener" target="_blank"><span title="Ver Perfil"> {props.categoria} : {props.nome} </span></a><br/>
+                <span > {props.nomeDoador} </span><br/>
+                <span > {props.nomeCatador} </span><br/>
+                {/* <a className="a-perfil" href={props.linkPerfil} rel="noreferrer noopener" target="_blank"><span title="Ver Perfil"> {props.categoria} : {props.nome} </span></a><br/> */}
                 <span> Ponto de Encontro : {props.pontoEncontro} </span><br/>
                
                 <div className={status}>
                     <span > {props.status} </span>
                 </div>
+                
+                { props.status === 'DISPONÍVEL' ? (
+                    <div>
+                        <button className="btn btn-success">RESERVAR</button>
+                    </div>
+                ): ''}
+
             </div>
         </>
     );

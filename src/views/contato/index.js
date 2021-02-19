@@ -40,9 +40,9 @@ const Contato = () => {
                     <button className='btn btn-success'>Enviar</button>
                 </form>
                 <div>
-                    <h5>Siga nosso Instagram</h5><small>Clique na Imagem</small>
-                    <img src={logo} alt="logo do EcoRenda" width='100px'/>    
-
+                    <h5>Siga nosso Instagram</h5>
+                    <a href="http://www.instagram.com/eco_renda" rel="noreferrer noopener" target="_blank"><img src={logo} alt="logo do EcoRenda" width='100px'/></a><br/>
+                    <small>Clique na Imagem</small>
                 </div>
             </div>
         </div>
