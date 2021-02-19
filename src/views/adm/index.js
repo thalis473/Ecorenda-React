@@ -80,7 +80,7 @@ export default function Adm(){
 
             <div>{/**segunda linha */}{/**gráficos */}
                 <h3 className="titleDashboard">Média de Usuários</h3>
-                <small className="subtitleDashboard">Nos últimos 30 dias</small>
+                <h6 className="subtitleDashboard">Nos últimos 30 dias</h6>
                 <button onClick={visualizarImpressaoUsuarios} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
                 {/* <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button> */}
                 <hr/>
@@ -89,7 +89,7 @@ export default function Adm(){
 
         <div >{/**terceira linha */}{/**gráficos */}
             <h3 className="titleDashboard">Média de Materiais Reciclados</h3>
-            <small className="subtitleDashboard">Nos últimos 30 dias</small>
+            <h6 className="subtitleDashboard">Nos últimos 30 dias</h6>
             <button onClick={visualizarImpressaoMateriais} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
             
             <GraficoMaterial data={materiais} legenda="Quantidade" cor="#2E8B57"/>
@@ -97,16 +97,26 @@ export default function Adm(){
 
         <div >{/**quarta linha */} {/**feedback */}
             <h3 className="titleDashboard">Feedbacks</h3>
-            <small className="subtitleDashboard">Nos últimos 30 dias</small>
+            <h6 className="subtitleDashboard">Nos últimos 30 dias</h6>
 
             <div className="view-feedback">
-                {/**AQUI ENTRA O MAP */}
+               
                 <CardFeedback 
                     title="José" 
                     subtitle="Consegui aumentar 20% da minha renda pelo EcoRenda!" 
                     categoria="Catador" 
                     datacadastro="02/02/2021 às 12:45 PM" />
-                {/**FIM MAP */}
+                     <CardFeedback 
+                    title="Thalis" 
+                    subtitle="Parabêns pela iniciativa" 
+                    categoria="doador" 
+                    datacadastro="04/10/2020 às 12:15 PM" />
+                     <CardFeedback 
+                    title="Josefina" 
+                    subtitle="Muito feliz com Aplicativo" 
+                    categoria="Catador" 
+                    datacadastro="02/01/2021 às 12:45 PM" />
+               
             </div>
         </div>
     </div>
