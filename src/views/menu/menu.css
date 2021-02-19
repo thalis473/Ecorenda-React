@@ -20,6 +20,11 @@
     transition: .2s;
 }
 
+.section-menu div h4:last-child {
+    background-color: red;
+    color: var(--color-text)
+}
+
 .section-menu div h4:hover {
     box-shadow: 0px 0px 3px black;
     background-color: var(--color-primary);

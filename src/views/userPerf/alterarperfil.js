@@ -89,6 +89,12 @@ const AtualizarPerfil = () =>{
                     <label htmlFor="email">Senha</label>
                     <input onChange={handleChangeUserUsuario} type="password" id="senha" className="form-control col-sm-9" value={user.senha} disabled/>
 
+                    <label htmlFor="nome">Celular</label>
+                    <input onChange={handleChangeUserUsuario} type="number" className="form-control col-sm-9 " id="celular" placeholder={user.celular}/>
+
+                    <label htmlFor="nome">Telefone</label>
+                    <input onChange={handleChangeUserUsuario} type="number" className="form-control col-sm-9 " id="telefone" placeholder={user.telefone}/>
+
                     <label htmlFor="atribuicao">Atribuição</label>
                     <label>{user.atribuicao}</label>
 

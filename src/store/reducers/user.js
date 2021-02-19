@@ -11,6 +11,12 @@ export default function user(state = INITIAL_STATE, action) {
         
         case "ATT": 
             return {...state, dados: [action.payload, state.dados[1]]}
+
+        case 'CAD':
+            return { dados: action.payload}
+
+        case 'LOGOUT': 
+            return state = INITIAL_STATE
         default:
             return state
             

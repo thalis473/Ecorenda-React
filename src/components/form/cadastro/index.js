@@ -23,14 +23,9 @@ export default function FormCadastro() {
 }
 
    
-
     const handleSubmit = (event) => {
         axios.post('http://localhost:4000/users/cad', usuario,{headers:heardes})
-        .then(()=>{
-            axios.get(`http://localhost:4000/users/email=${usuario.email}/senha=${usuario.senha}`)
-            .then(response=>dispatch({type: 'LOGIN', payload: response.data[0]}))
-        })
-        .then(()=>history.push("/perfil"))
+        .then(alert("Cadastro efetuado com sucesso!"))
         }
      
     return(   
