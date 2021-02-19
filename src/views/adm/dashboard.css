@@ -58,6 +58,7 @@
     margin:10px;    
     width: 30px;
     height: 30px;
+    float: right;
 }
 .btn-print:hover{
     cursor:pointer;

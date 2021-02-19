@@ -33,9 +33,9 @@ export default function FormLogin(props) {
     <div className="container">
       <h1>Login</h1>
       
-      <form className="container form-group col-sm-4"> 
+      <form className="container form-group col-sm-9"> 
       <label htmlFor="tipo"> Entrar como</label>
-        <select id="tipo" className="form-control">
+        <select id="tipo" className="form-control col-sm-9">
             <option value="" defaultValue>Selecione</option>
             <option value="catador">Catador</option>
             <option value="doador">Doador</option>
@@ -43,11 +43,11 @@ export default function FormLogin(props) {
         </select>
           
         <label htmlFor="email">E-mail</label>
-        <input onChange={handleChange} type="email" className="form-control" name="email" placeholder="Seu email" />
+        <input onChange={handleChange} type="email" className="form-control col-sm-9" name="email" placeholder="Seu email" />
         <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu e-mail, com ninguém.</small>
         
         <label htmlFor="senha">Senha</label>
-        <input onChange={handleChange} type="password" className="form-control" name="senha" placeholder="Senha"/>
+        <input onChange={handleChange} type="password" className="form-control col-sm-9" name="senha" placeholder="Senha"/>
         <br/><br/><br/>
         <button onClick={handleSubmit} className="btn btn-success">Entrar</button>
       </form>  
