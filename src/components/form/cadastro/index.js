@@ -1,7 +1,7 @@
 import {useState} from 'react'
 import axios from 'axios'
 import { useHistory } from 'react-router-dom';
-import {useSelector, useDispatch} from 'react-redux'
+import {useDispatch} from 'react-redux'
 
 
 import './cadastro.css'
@@ -9,7 +9,6 @@ import './cadastro.css'
 
 export default function FormCadastro() {
     const [usuario, setUsuario] = useState({})
-    const user = useSelector(state => state.user.dados)
     const history = useHistory()
     const dispatch = useDispatch()
 
@@ -33,30 +32,20 @@ export default function FormCadastro() {
         })
         .then(()=>history.push("/perfil"))
         }
-
-        
-        /*.then((result) => {
-            axios.post(`http://localhost:4000/enderecos/cad/id=${user.id}`,{headers:heardes})
-        })
-        .then((result) => {
-        axios.post(`http://localhost:4000/materiais/cad/id=${user.id}`,{headers:heardes})
-        })*/
-        
-    
      
     return(   
     <div className="container">
         <h1>Cadastro</h1>
         <div className="container form-group">
-
-        <label htmlFor="nome">Seu Nome</label>
-                <input onChange={ handleChangeUsuario} type="text" className="form-control col-sm-6" id="nome" placeholder="Nome"/>
+        <form>
+            <label htmlFor="nome">Seu Nome</label>
+                <input onChange={ handleChangeUsuario} type="text" className="form-control col-sm-6" id="nome" placeholder="Nome" required/>
 
                 <label htmlFor="email">E-mail</label>
-                <input onChange={ handleChangeUsuario} type="text"  id="email" className="form-control col-sm-3"/>
+                <input onChange={ handleChangeUsuario} type="text"  id="email" className="form-control col-sm-3" required/>
 
                 <label htmlFor="senha">Senha</label>
-                <input onChange={ handleChangeUsuario} type="password"  id="senha" className="form-control col-sm-3"/>                       
+                <input onChange={ handleChangeUsuario} type="password"  id="senha" className="form-control col-sm-3" required/>                       
 
                 <label htmlFor="atribuicao">Atribuição</label>
                 <select onChange={ handleChangeUsuario} id="atribuicao" className="form-control col-sm-3">
@@ -67,7 +56,7 @@ export default function FormCadastro() {
                 </select>
         
          
-           
+        </form>   
         </div>
        <button onClick={ handleSubmit } className="btn btn-success">Cadastrar</button>
     </div>

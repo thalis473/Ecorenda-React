@@ -45,7 +45,7 @@ export default function FormLogin(props) {
         <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu e-mail, com ninguém.</small>
         
         <label htmlFor="senha">Senha</label>
-        <input onChange={handleChange} type="current-password" className="form-control" name="senha" placeholder="Senha"/>
+        <input onChange={handleChange} type="password" className="form-control" name="senha" placeholder="Senha"/>
         <br/><br/><br/>
         <button onClick={handleSubmit} className="btn btn-success">Entrar</button>
       </form>  
