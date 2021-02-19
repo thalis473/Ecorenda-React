@@ -12,10 +12,11 @@ agendamento.get('/agendamento', (req, res, next)=> {
 
 //BUSCA POR ENDEREÇOS
 agendamento.get('/agendamento/busca', (req, res, next)=> {
-    let dados = {
-     
-    }
-    let sql = ``
+    
+    let sql = `select agendamentos.*, usuarios.nome as nomeDoador, usuarios.nome as nomeCatador from agendamentos 
+    left join usuarios as catador on catador.id = agendamentos.catador
+    inner join usuarios as doador on doador.id = agendamentos.doador
+    `
     conn.query(sql, (error, result) => {
         res.json(result)
     })
@@ -23,13 +24,18 @@ agendamento.get('/agendamento/busca', (req, res, next)=> {
 
 // CADASTRAR UM ENDEREÇO
 agendamento.post('/agendamento/cad/id=:usuarioID', (req, res, next) => {
+   
     let dados = {
-        usuarioID: req.params.usuarioID,
-       
+        doador: req.params.usuarioID,
+        material: req.body.material,
+        observacao: req.body.observacao,
+        localizacao:req.body.localizacao,
+        quantidade:req.body.quantidade,
     }
-    let sql = `INSERT INTO agendamento(usuarioID) VALUES(${dados.usuarioID})`
-    conn.query(sql, (error, result)=> {
-        res.json([{msg: 'endereço cadastrado!'},{dados}, {log: result}])
+
+    let sql = `INSERT INTO agendamentos set?`
+    conn.query(sql,dados, (error, result)=> {
+        res.json([{msg: 'agendamento cadastrado!'},{dados}])
     })
 })
 
