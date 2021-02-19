@@ -17,12 +17,14 @@ export default function FormLogin(props) {
   }
 
   const conn = ()=> axios.get(`http://localhost:4000/users/email=${login.email}/senha=${login.senha}`)
-  
+  const material=()=>axios.get("http://localhost:4000/agendamento/busca")
   
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const response = await conn()
-    dispatch({type: 'LOGIN', payload: response.data[0]})
+     const response = await conn()
+     const response1 = await material()
+     const dados =[response.data[0],response1.data]
+    dispatch({type: 'LOGIN', payload: dados})
     await history.push("/user")
 
   }

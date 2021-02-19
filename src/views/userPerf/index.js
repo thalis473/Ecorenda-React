@@ -1,10 +1,11 @@
 import {useSelector} from 'react-redux'
-// import MaterialCard from '../../components/materialCard'
+ import MaterialCard from '../../components/materialCard'
 import { Link } from 'react-router-dom'
 import './userPerf.css'
 
 export default function UserPerf(props) {
-    const user = useSelector(state => state.user.dados)
+    const user = useSelector(state => state.user.dados[0])
+    
     console.log(user)
     return (
         <div className="user-perf">
@@ -42,8 +43,8 @@ export default function UserPerf(props) {
             </section>
 
             <section>
-                {/* <MaterialCard />
-                <MaterialCard /> */}
+                <MaterialCard />
+                {/* <MaterialCard /> */}
             </section>
         </div>
     )
