@@ -19,12 +19,12 @@ import print from '../../components/pdfmake/impressao.json';
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default function UserHome() {
-    const user = useSelector(state => state.user.dados)
+    const user = useSelector(state => state.user.dados[0])
     const dispatch = useDispatch()
 
     useEffect(()=> {
         axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
-        .then(response => dispatch({type: 'LOGIN', payload: response.data[0]}))
+        .then(response => dispatch({type: 'ATT', payload: response.data[0]}))
     },[])
 
     const header = [

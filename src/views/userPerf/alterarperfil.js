@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import {useSelector, useDispatch} from 'react-redux'
+import {useHistory} from 'react-router-dom'
 import './userPerf.css'
 import { Link } from 'react-router-dom'
 import axios from "axios"
@@ -10,12 +11,13 @@ const AtualizarPerfil = () =>{
     const [material, setMaterial] = useState({})
     const [lista, setLista] = useState({})
 
-    const user = useSelector(state => state.user.dados)
+    const user = useSelector(state => state.user.dados[0])
     const dispatch = useDispatch()
+    const history = useHistory()
 
     useEffect(()=> {
         axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
-        .then(response => dispatch({type: 'LOGIN', payload: response.data[0]}))
+        .then(response => dispatch({type: 'ATT', payload: response.data[0]}))
     },[])
     
     const heardes={
@@ -28,6 +30,7 @@ const AtualizarPerfil = () =>{
         event.preventDefault()
         axios.post(`http://localhost:4000/alterar/${user.id}`,usuario,{headers:heardes})
         .then(alert("Dados pessoais alterados com sucesso!"))
+        .then(history.push("/perfil"))
         
         
     }
@@ -36,12 +39,14 @@ const AtualizarPerfil = () =>{
         event.preventDefault()
         axios.post(`http://localhost:4000/alterarenderecos/${user.id}`, endereco,{headers:heardes})
         .then(alert("Endereço alterado com sucesso!"))
+        .then(history.push("/perfil"))
     }
         /*envio material*/
     const handleSubmitMaterial = (event) => {
         event.preventDefault()
         axios.post('http://localhost:4000/users/cad', material,{headers:heardes})
         .then(alert("Materiais atualizados!"))
+        .then(history.push("/perfil"))
     }
 
    

@@ -1,10 +1,18 @@
-import {useSelector} from 'react-redux'
+import {useSelector, useDispatch} from 'react-redux'
+import {useEffect} from 'react'
+import axios from 'axios'
  import MaterialCard from '../../components/materialCard'
 import { Link } from 'react-router-dom'
 import './userPerf.css'
 
 export default function UserPerf(props) {
     const user = useSelector(state => state.user.dados[0])
+    const dispatch = useDispatch()
+
+    useEffect(()=> {
+        axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
+        .then(response => dispatch({type: 'ATT', payload: response.data[0]}))
+    },[])
     
     console.log(user)
     return (
@@ -29,11 +37,11 @@ export default function UserPerf(props) {
             <section>
                 <div>
                     <h2>Localização</h2>
-                    <span>CEP: {user.cep}</span>
                     <span>Estado: {user.estado}</span>
                     <span>Bairro: {user.bairro}</span>
                     <span>Rua: {user.rua}</span>
                     <span>Num: {user.num}</span>
+                    <span>Complemento: {user.complemento}</span>
                 </div>
 
                 <div>
