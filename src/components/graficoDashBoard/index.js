@@ -30,7 +30,7 @@ export function GraficoUsuarios(props){
                 startAngle={180} 
                 endAngle={0}
                 >
-                <RadialBar  minAngle={15} label={{ fill: '#fff', position: 'insideStart' }} background clockWise={true} dataKey={props.legenda} />
+                <RadialBar  minAngle={15} label={{ fill: '#2c6e49', position: 'insideStart' }} background clockWise={true} dataKey={props.legenda} />
                 <Legend  iconSize={10} width={120} height={140} layout='vertical' verticalAlign='bottom' align="right" />
                 <Tooltip />
             </RadialBarChart>

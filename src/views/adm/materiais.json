@@ -1,0 +1,22 @@
+[
+    {
+        "tipo": "Papel/Papelão",
+        "Quantidade": 10,
+        "datacadastro": "10/02/2021"
+    },
+    {
+        "tipo": "Metal/Alumínio",
+        "Quantidade": 30,
+        "datacadastro": "10/02/2021"
+    },
+    {
+        "tipo": "Vidro",
+        "Quantidade": 8,
+        "datacadastro": "10/02/2021"
+    },
+    {
+        "tipo": "Plástico",
+        "Quantidade": 26,
+        "datacadastro": "10/02/2021"     
+    }
+]

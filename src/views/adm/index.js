@@ -3,6 +3,7 @@ import CardDashboard, { CardFeedback } from '../../components/cardDashboard';
 import GraficoMaterial, { GraficoUsuarios } from '../../components/graficoDashBoard';
 import PrintIcon from '@material-ui/icons/Print';
 import './dashboard.css';
+import materiaisPrint from '../adm/materiais.json';
 import materiais from '../userHome/materiais.json';
 import usuarios from './usuario.json';
 
@@ -34,7 +35,6 @@ export default function Adm(){
         var conf = { titulo:'RELÁTORIO USUÁRIO CADASTRADOS', footer:'© EcoRenda 2021'}
         
         const classeImpressao = new Impressao(conf,header,body);//titulo,header,dadosParaImpressao, body, footer
-        //   const classeImpressao = new Impressao('RELÁTORIO USUÁRIO CADASTRADOS',header,body,'© EcoRenda 2021');//titulo,header,dadosParaImpressao, body, footer
         const documento = await classeImpressao.PreparaDocumento();
           pdfMake.createPdf(documento).open({}, window.open('', '_blank'));
       }
@@ -46,10 +46,10 @@ export default function Adm(){
             { text: 'Data Cadastro', bold: true, fontSize: 9, margin: [0, 4, 0, 0] },
           ];
     
-          const body = print.map((d) => {
+          const body = materiaisPrint.map((d) => {
               return [
-                { text: d.nome, fontSize: 8 },
-                { text: d.categoria, fontSize: 8 },
+                { text: d.tipo, fontSize: 8 },
+                { text: d.quantidade, fontSize: 8 },
                 { text: d.datacadastro, fontSize: 8 },
               ];
             });
@@ -57,7 +57,6 @@ export default function Adm(){
         var conf = { titulo:'RELÁTORIO MATERIAIS CADASTRADOS', footer:'© EcoRenda 2021'}
         
         const classeImpressao = new Impressao(conf,header,body);//titulo,header,dadosParaImpressao, body, footer
-      //   const classeImpressao = new Impressao('RELÁTORIO USUÁRIO CADASTRADOS',header,body,'© EcoRenda 2021');//titulo,header,dadosParaImpressao, body, footer
         const documento = await classeImpressao.PreparaDocumento();
         pdfMake.createPdf(documento).open({}, window.open('', '_blank'));
     }
@@ -73,16 +72,15 @@ export default function Adm(){
                 <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
             </div>
             <div className="view-adm-cards">{/* primeira linha*/}
-                <CardDashboard title="Doadores" quantidade="10"/>
-                <CardDashboard title="Catadores" quantidade="50"/>
-                <CardDashboard title="Empresas" quantidade="60"/>
+                <CardDashboard title="Doadores" quantidade="12"/>
+                <CardDashboard title="Catadores" quantidade="47"/>
+                <CardDashboard title="Empresas" quantidade="34"/>
             </div>
 
             <div>{/**segunda linha */}{/**gráficos */}
                 <h3 className="titleDashboard">Média de Usuários</h3>
                 <h6 className="subtitleDashboard">Nos últimos 30 dias</h6>
                 <button onClick={visualizarImpressaoUsuarios} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
-                {/* <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button> */}
                 <hr/>
                 <GraficoUsuarios data={usuarios} legenda='Quantidade'/>
             </div>

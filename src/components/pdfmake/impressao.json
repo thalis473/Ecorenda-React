@@ -1,22 +1,79 @@
 [
     {
-      "nome": "Mousepad",
-      "qtdEstoque": 4,
-      "qtdVendido": 10
+      "nome": "João Claudino",
+      "categoria": "Doador",
+      "datacadastro": "10/02/2021"
+    },  
+    {
+      "nome": "Maria Angela",
+      "categoria": "Catador",
+      "datacadastro": "20/01/2021"
+    },  {
+      "nome": "CCER/NI - Centro de Coleta e Reciclagem em Nova Iguaçu",
+      "categoria": "Estabelecimento",
+      "datacadastro": "01/02/2021"
+    },  {
+      "nome": "Hugo Freitas",
+      "categoria": "Doador",
+      "datacadastro": "19/02/2021"
+    },  {
+      "nome": "Orimar Silva",
+      "categoria": "Catador",
+      "datacadastro": "12/02/2021"
+    },  {
+      "nome": "Marcos Pereira",
+      "categoria": "Doador",
+      "datacadastro": "14/02/2021"
     },
     {
-      "nome": "Teclado",
-      "qtdEstoque": 8,
-      "qtdVendido": 12
-    },
+      "nome": "Thalis Oficial",
+      "categoria": "Doador",
+      "datacadastro": "10/02/2021"
+    },  
     {
-      "nome": "Monitor",
-      "qtdEstoque": 2,
-      "qtdVendido": 14
-    },
+      "nome": "Vianense",
+      "categoria": "Estabelecimento",
+      "datacadastro": "20/01/2021"
+    },  {
+      "nome": "Emlurb",
+      "categoria": "Estabelecimento",
+      "datacadastro": "03/02/2021"
+    },  {
+      "nome": "Paloma de Souza",
+      "categoria": "Doador",
+      "datacadastro": "13/02/2021"
+    },  {
+      "nome": "Gilmar Silva",
+      "categoria": "Catador",
+      "datacadastro": "12/02/2021"
+    },  {
+      "nome": "Antonio Mendes",
+      "categoria": "Catador",
+      "datacadastro": "13/02/2021"
+    },{
+      "nome": "Fernanda Montes",
+      "categoria": "Doador",
+      "datacadastro": "11/02/2021"
+    },  
     {
-      "nome": "Mouse",
-      "qtdEstoque": 15,
-      "qtdVendido": 32
-    }  
+      "nome": "Lorena Angela",
+      "categoria": "Catador",
+      "datacadastro": "20/01/2021"
+    },  {
+      "nome": "ReciclaRio",
+      "categoria": "Estabelecimento",
+      "datacadastro": "22/02/2021"
+    },  {
+      "nome": "Marcelo Freitas",
+      "categoria": "Doador",
+      "datacadastro": "19/02/2021"
+    },  {
+      "nome": "Marcio Silva",
+      "categoria": "Catador",
+      "datacadastro": "12/02/2021"
+    },  {
+      "nome": "Jonas Pereira",
+      "categoria": "Doador",
+      "datacadastro": "14/02/2021"
+    }
   ]
