@@ -13,6 +13,7 @@ import UserPerf from './views/userPerf'
 import Adm from './views/adm'
 import Agendamento from './views/agendamento'
 import AtualizarPerfil from './views/userPerf/alterarperfil'
+import ViewContato from './views/contato'
 
 
 export default function App() {
@@ -34,6 +35,7 @@ export default function App() {
           <Route path="/perfil" component={UserPerf} exact />
           <Route path="/atualizar" component={AtualizarPerfil} exact />
           <Route path='/menu' component={ViewMenu} />
+          <Route path='/contato' component={ViewContato} />
           <Route path='/adm' component={Adm} />
         </Switch>
       </Body>

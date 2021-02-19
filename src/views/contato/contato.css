@@ -1,0 +1,26 @@
+.view-contato{
+    display:flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content:space-around;
+}
+.view-contato-div{
+    color:azure;
+    width:40%;
+    height: auto;
+    margin:10px;
+    background:rgba(210, 255, 196, 0.3);
+    border-radius: 10px;
+    padding:10px;
+    text-align:center;
+}
+
+@media only screen and (max-width:600px){
+    .view-contato{
+        display:block;
+    }
+    .view-contato-div{
+        width:90%;
+        margin:10px;
+    }
+}
