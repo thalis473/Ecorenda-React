@@ -64,13 +64,13 @@
     color:white;
     border:1px solid white;
 }
-a{
+.a-perfil{
     text-decoration:none;
     font-weight: bold;
     color:white;
 
 }
-a:hover{
+.a-perfil:hover{
     background-color: white;
 }
 @media only screen and (max-width: 600px) {

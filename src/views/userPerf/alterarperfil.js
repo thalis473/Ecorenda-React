@@ -85,7 +85,8 @@ const AtualizarPerfil = () =>{
                     <input onChange={handleChangeUserUsuario} type="password" id="senha" className="form-control col-sm-9" value={user.senha} disabled/>
 
                     <label htmlFor="atribuicao">Atribuição</label>
-                    <input onChange={handleChangeUserUsuario} type="text" value={user.atribuicao}  id="atribuicao" className="form-control col-sm-9" disabled/>
+                    <label>{user.atribuicao}</label>
+
                 </div>
                 <button onClick={handleSubmitUsuario} className="btn btn-success">Salvar dados pessoais</button>
             </form>

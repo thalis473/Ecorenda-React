@@ -6,6 +6,7 @@ import  home2  from '../../img/home/home2.jpeg';
 import  home3  from '../../img/home/home3.jpeg';
 import  home4  from '../../img/home/home4.jpeg';
 import  home5  from '../../img/home/home5.jpeg';
+import  home9  from '../../img/home/home9.jpeg';
 import './home.css'
 
 export default function ViewHome() {
@@ -43,7 +44,9 @@ export default function ViewHome() {
 
                         <p>(Locais que constantemente são utilizados para realizar descartes incorretos.)</p>
                         
-                    
+                        <div className="imgCarrossel">
+                            <img className=" imgCarrossel" src={ home9 } alt="Third slide"/>
+                        </div>
                 </div>
 
                 <div>
@@ -66,7 +69,7 @@ export default function ViewHome() {
                     agendar a coleta. Tornando o processo de coleta
                     mais rápido e eficaz .
                 </p>
-                <div>
+                <div className="imgCarrossel">
                     <img className=" imgCarrossel" src={ home3 } alt="Third slide"/>
                 </div>
                 <div className="agentes-blocos-area">

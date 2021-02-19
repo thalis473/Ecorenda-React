@@ -39,16 +39,16 @@ export default function FormCadastro() {
         <div className="container form-group">
         <form>
             <label htmlFor="nome">Seu Nome</label>
-                <input onChange={ handleChangeUsuario} type="text" className="form-control col-sm-6" id="nome" placeholder="Nome" required/>
+                <input onChange={ handleChangeUsuario} type="text" className="form-control col-sm-9" id="nome" placeholder="Nome" required/>
 
                 <label htmlFor="email">E-mail</label>
-                <input onChange={ handleChangeUsuario} type="text"  id="email" className="form-control col-sm-3" required/>
+                <input onChange={ handleChangeUsuario} type="text"  id="email" className="form-control col-sm-9" required/>
 
                 <label htmlFor="senha">Senha</label>
-                <input onChange={ handleChangeUsuario} type="password"  id="senha" className="form-control col-sm-3" required/>                       
+                <input onChange={ handleChangeUsuario} type="password"  id="senha" className="form-control col-sm-9" required/>                       
 
                 <label htmlFor="atribuicao">Atribuição</label>
-                <select onChange={ handleChangeUsuario} id="atribuicao" className="form-control col-sm-3">
+                <select onChange={ handleChangeUsuario} id="atribuicao" className="form-control col-sm-9">
                     <option>SELECIONE</option>
                     <option value="catador">Catador</option>
                     <option value="doador">Doador</option>
