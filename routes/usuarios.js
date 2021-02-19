@@ -33,6 +33,23 @@ users.get('/users/email=:email/senha=:senha', (req, res, next) => {
     })
 })
 
+// VALIDAÇÃO DE DADOS ATUALIZADOS
+users.get('/usersatt/email=:email/senha=:senha', (req, res, next) => {
+    let dados = {
+        email: req.params.email,
+        senha: req.params.senha
+    }
+    let sql = `SELECT usuarios.*, enderecos.*, materiais.*
+    FROM usuarios LEFT OUTER JOIN enderecos
+    ON usuarios.id = enderecos.usuarioID
+	LEFT OUTER JOIN materiais ON usuarios.id = materiais.usuarioID
+    WHERE email = "${dados.email}"
+    AND senha = '${dados.senha}'`
+    conn.query(sql, (error, result) => {
+       res.json(result)
+    })
+})
+
 //CADASTRAR USUARIO 
 users.post('/users/cad', (req, res, next) => {
     let dados = {
@@ -73,7 +90,6 @@ users.post('/alterar/:id', (req, res, next) => {
     let id = req.params.id
     let dados = {
         nome: req.body.nome,
-        email: req.body.email,
     }
     conn.query(`UPDATE usuarios set? WHERE id=${id}`, dados, () => {
         res.json({msm: `registro ${id} alterado para...`, dado: dados})
