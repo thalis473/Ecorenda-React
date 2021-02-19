@@ -1,6 +1,7 @@
 import { Switch, Route } from 'react-router-dom'
+import {useSelector} from 'react-redux'
 import Body from './components/body'
-import Navbar from './components/nav'
+import {Navbar, NavbarUser} from './components/nav'
 import {Header} from './components/header'
 import ViewError from './views/error'
 import ViewHome from './views/home'
@@ -15,11 +16,12 @@ import AtualizarPerfil from './views/userPerf/alterarperfil'
 
 
 export default function App() {
+  const user = useSelector(state => state.user.dados)
 
   return (
     <div className="App">
         <Header>
-          <Navbar />
+          {user.nonUser ? <Navbar /> : <NavbarUser />}
         </Header>
       <Body>
         <Switch>

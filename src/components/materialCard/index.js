@@ -1,6 +1,6 @@
 import {useSelector} from 'react-redux'
 import React, { useState } from 'react'
-/*import Material from '../material'*/
+import axios from 'axios'
 
 import './materialCard.css'
 
@@ -9,12 +9,17 @@ export default function MaterialCard(props){
     const [feedback, setFeedback] = useState({})
     const user = useSelector(state => state.user.dados)
 
-   
+    const heardes={
+        'Content-Type': 'application/json',
+        'Authorization': 'JWT fefege...'
+    }
+    const handleSubmit = (event) => {
+        axios.post(`http://localhost:4000/agendamento/cad/id=${user.id}`, material,{headers:heardes})
+    }
 
     const handleChangeUserMaterial = ({target}) => {
         const {id, value} = target
         setMaterial({...material, [id]: value})
-        console.log(material)
     }
     const handleFedback = ({target}) => {
         const {id, value} = target
@@ -25,16 +30,29 @@ export default function MaterialCard(props){
        <div >
             <form>
                 <div className="form-group">
-                    <label htmlFor="nome">Material que você pretende doar</label>
-                    <input type="text" onChange={handleChangeUserMaterial} className="form-control col-sm-9 " id="nome" placeholder="nome do material"/>
 
-                    <label htmlFor="local">local de encontro</label>
-                    <input type="text" onChange={handleChangeUserMaterial} placeholder="Local disponivel " id="local" className="form-control col-sm-9"/>
+                    <label htmlFor="agendamento">Material que você pretende doar</label>
+                    <select onChange={ handleChangeUserMaterial} id="material" className="form-control col-sm-9">
+                        <option>SELECIONE</option>
+                        <option value="aluminio">Alumínio</option>
+                        <option value="cobre">Cobre</option>
+                        <option value="plastico">Plastico</option>
+                        <option value="vidro">Vidro</option>
+                        <option value="papel">Papel</option>
+                    </select>
 
-                    <label htmlFor="atribuicao">Peso aproximado </label>
-                    <input type="text" onChange={handleChangeUserMaterial}  placeholder="KG" id="atribuicao" className="form-control col-sm-9" />
+
+                    <label htmlFor="localizacao">Local de encontro</label>
+                    <input type="text" onChange={handleChangeUserMaterial} placeholder="Local disponivel " id="localizacao" className="form-control col-sm-9"/>
+
+                    <label htmlFor="quantidade">Peso aproximado </label>
+                    <input type="text" onChange={handleChangeUserMaterial}  placeholder="KG" id="quantidade" className="form-control col-sm-9" />
+                    <div className="form-group">
+                    <label htmlFor="obs">Observação</label>            
+                        <textarea onChange={handleChangeUserMaterial} type="text" id="observacao" className="form-control col-sm-9" placeholder="Informe os horarios disponiveís para entrega "></textarea>
                 </div>
-                <button  className="btn btn-success">Confirmar contribuição</button>
+                </div>
+                <button  onClick={handleSubmit} className="btn btn-success">Confirmar contribuição</button>
             </form>
             <br/>
             <form>

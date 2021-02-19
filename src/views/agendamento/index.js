@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux'
 import PrintIcon from '@material-ui/icons/Print';
 import CardAgendamento from '../../components/cardAgendamento';
 import './agendamento.css';
@@ -6,6 +7,9 @@ import './agendamento.css';
 import data from './agendamento.json';
 
 export default function Index(){
+    const agendamento = useSelector(state => state.user.dados[1])
+    const usuario = useSelector(state => state.user.dados[0])
+    console.log(agendamento)
     return(
         <div>
             <div className='view-header-agendamento'>
@@ -14,18 +18,16 @@ export default function Index(){
             </div>
             <div className="view-agendamento">
                 {
-                    data.map((data, d) => 
+                    agendamento.map((agendamento, d) => 
                         <CardAgendamento
-                        key={d} 
-                        hora={data.hora}    
-                        data={data.data}
-                        material={data.material}
-                        quantidade={data.quantidade}
-                        categoria={data.categoria}
-                        nome={data.nome}
-                        linkPerfil={data.linkPerfil}
-                        pontoEncontro={data.pontoEncontro}
-                        status={data.status}
+                        key={agendamento.idA} 
+                        hora={agendamento.hora}    
+                        data={agendamento.data}
+                        material={agendamento.material}
+                        quantidade={agendamento.quantidade}
+                        nome={agendamento.doador}
+                        pontoEncontro={agendamento.localizacao}
+                        status={agendamento.status}
                         />     
                     )         
                 }

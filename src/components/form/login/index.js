@@ -17,12 +17,14 @@ export default function FormLogin(props) {
   }
 
   const conn = ()=> axios.get(`http://localhost:4000/users/email=${login.email}/senha=${login.senha}`)
-  
+  const material=()=>axios.get("http://localhost:4000/agendamento/busca")
   
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const response = await conn()
-    dispatch({type: 'LOGIN', payload: response.data[0]})
+     const response = await conn()
+     const response1 = await material()
+     const dados =[response.data[0],response1.data]
+    dispatch({type: 'LOGIN', payload: dados})
     await history.push("/user")
 
   }
@@ -45,7 +47,7 @@ export default function FormLogin(props) {
         <small id="emailHelp" className="form-text text-muted">Nunca vamos compartilhar seu e-mail, com ninguém.</small>
         
         <label htmlFor="senha">Senha</label>
-        <input onChange={handleChange} type="current-password" className="form-control" name="senha" placeholder="Senha"/>
+        <input onChange={handleChange} type="password" className="form-control" name="senha" placeholder="Senha"/>
         <br/><br/><br/>
         <button onClick={handleSubmit} className="btn btn-success">Entrar</button>
       </form>  
