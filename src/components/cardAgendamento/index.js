@@ -58,7 +58,7 @@ const CardAgendamento = (props)=> {
                 <span aria-hidden="true">&times;</span>
                 <br/>
                 <span> {props.material} : {props.quantidade} </span><br/>
-                <a href={props.linkPerfil} rel="noreferrer noopener" target="_blank"><span title="Ver Perfil"> {props.categoria} : {props.nome} </span></a><br/>
+                <a className="a-perfil" href={props.linkPerfil} rel="noreferrer noopener" target="_blank"><span title="Ver Perfil"> {props.categoria} : {props.nome} </span></a><br/>
                 <span> Ponto de Encontro : {props.pontoEncontro} </span><br/>
                
                 <div className={status}>
