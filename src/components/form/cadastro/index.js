@@ -15,7 +15,7 @@ export default function FormCadastro() {
     const handleChangeUsuario = ({target}) => {
         const {id, value} = target
         setUsuario({...usuario, [id]: value})
-        console.log(usuario)
+        // console.log(usuario)
  }
  const heardes={
     'Content-Type': 'application/json',
@@ -24,9 +24,20 @@ export default function FormCadastro() {
 
    
     const handleSubmit = (event) => {
-        axios.post('http://localhost:4000/users/cad', usuario,{headers:heardes})
-        .then(alert("Cadastro efetuado com sucesso!"))
+        if(usuario.email != null && usuario.senha !=null && usuario.nome != null && usuario.atribuicao){
+            axios.post('http://localhost:4000/users/cad', usuario,{headers:heardes})
+            .then((res)=>{
+                if(res.status==200)
+                alert("Cadastro efetuado com sucesso!")
+            })
+            .catch((error)=>{
+                alert("Algo deu errado... Verifique seus dados e tente novamente!");
+                console.log(error.message)
+            })
+        }else{
+            alert("Ops... Parece que você esqueceu algum campo em branco.");
         }
+    }
      
     return(   
     <div className="container">
