@@ -15,6 +15,8 @@ const agendamento=require('./routes/agendamento')
 app.use(agendamento)
 const aluminio = require('./routes/materiais/aluminio')
 app.use(aluminio)
+const cobre = require('./routes/materiais/cobre')
+app.use(cobre)
 
 app.listen(4000, () => {
     console.log('Rodando em: http://localhost:4000/')
