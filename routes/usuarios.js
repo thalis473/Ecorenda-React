@@ -3,10 +3,10 @@ const conn = require('../conn')
 const users = express.Router()
 
 
-// EXIBE USUARIOS PARA A PÁGINA DE BUSCAS
+// EXIBE USUARIOS PARA A PÁGINA DE PERFIL <-- AJUSTAR -->
 users.get('/users', (req, res, next) => {
     let sql = `
-    SELECT usuarios.nome, usuarios.atribuicao, enderecos.*, materiais.*
+    SELECT usuarios.*, enderecos.*, materiais.*
     FROM usuarios
     LEFT OUTER JOIN enderecos ON usuarios.id = enderecos.usuarioId
     LEFT OUTER JOIN materiais ON usuarios.id = materiais.usuarioId;
