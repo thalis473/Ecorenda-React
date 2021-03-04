@@ -1,22 +1,22 @@
-const express = require('express')
+ const express = require('express')
 const conn = require('../conn')
 const users = express.Router()
 
 
-// EXIBE USUARIOS
+// EXIBE USUARIOS PARA A PÁGINA DE BUSCAS
 users.get('/users', (req, res, next) => {
-    let sql = `SELECT usuarios.id, usuarios.nome, usuarios.atribuicao, enderecos.* , materiais.*
-    FROM usuarios 
-    LEFT OUTER JOIN enderecos
-    ON usuarios.id = enderecos.usuarioID
-    LEFT OUTER JOIN materiais
-    ON usuarios.id = materiais.usuarioID`
+    let sql = `
+    SELECT usuarios.nome, usuarios.atribuicao, enderecos.*, materiais.*
+    FROM usuarios
+    LEFT OUTER JOIN enderecos ON usuarios.id = enderecos.usuarioId
+    LEFT OUTER JOIN materiais ON usuarios.id = materiais.usuarioId;
+    `
     conn.query(sql, (error, result) => {
         res.json(result)
     })
 })
 
-// VALIDAÇÃO LOGIN + DADOS COMPLETOS DO USUARIO
+// VALIDAÇÃO LOGIN + DADOS COMPLETOS DO USUARIO <-- AJUSTAR -->
 users.get('/users/email=:email/senha=:senha', (req, res, next) => {
     let dados = {
         email: req.params.email,
@@ -27,13 +27,13 @@ users.get('/users/email=:email/senha=:senha', (req, res, next) => {
     ON usuarios.id = enderecos.usuarioID
 	LEFT OUTER JOIN materiais ON usuarios.id = materiais.usuarioID
     WHERE email = "${dados.email}"
-    AND senha = MD5('${dados.senha}')`
+    AND senha = sha1('${dados.senha}')`
     conn.query(sql, (error, result) => {
         res.json(result)
     })
 })
 
-// VALIDAÇÃO DE DADOS ATUALIZADOS
+// VALIDAÇÃO DE DADOS PARA ATUALIZAR O REDUCER <-- AJUSTAR -->
 users.get('/usersatt/email=:email/senha=:senha', (req, res, next) => {
     let dados = {
         email: req.params.email,
@@ -50,7 +50,7 @@ users.get('/usersatt/email=:email/senha=:senha', (req, res, next) => {
     })
 })
 
-//CADASTRAR USUARIO 
+//CADASTRO DO USUARIO 
 users.post('/users/cad', (req, res, next) => {
     let dados = {
         nome: req.body.nome,
@@ -59,33 +59,15 @@ users.post('/users/cad', (req, res, next) => {
         senha: req.body.senha
     }
     let sql = `INSERT INTO usuarios(nome, email, senha, atribuicao)
-    VALUES ('${dados.nome}', '${dados.email}', md5('${dados.senha}'), '${dados.atribuicao}')`
+    VALUES ('${dados.nome}', '${dados.email}', sha1('${dados.senha}'), '${dados.atribuicao}')`
     conn.query(sql, (error, result) => {
-       /* res.json([{msg: 'usuario cadastrado!'},{dados: dados}, {log: result}])*/
        res.json({msg:'usuario cadastrado'})
     })
 })
 
 // <-- ATENÇÃO -->
 // ALTERAR USUARIO (INCOMPLETO)
-users.put('/users/id=:id', (req, res, next) => {
-    let dados = {
-        id: req.params.id,
-        cpf: req.body.cpf,
-        nome: req.body.nome,
-        email: req.body.email,
-        senha: req.body.senha,
-        endereco: req.body.endereco,
-        celular: req.body.celular,
-        telefone: req.body.telefone,
-        data_nascimento: req.body.data_nascimento,
-        data_cadastro: req.body.data_cadastro
-    }
-    conn.query(`UPDATE usuarios set? WHERE id=${dados.id}`, dados, () => {
-        res.json({msm: `registro ${dados.id} alterado para...`, dado: dados})
-    })
-})
-/*Teste*/
+
 users.post('/alterar/:id', (req, res, next) => {
     let id = req.params.id
     let dados = {
@@ -100,13 +82,5 @@ users.post('/alterar/:id', (req, res, next) => {
     })
 })
 
-// DELETAR USUARIO
-users.delete('/users/del/id=:id', (req, res, next) => {
-    let dados = req.params.id
-    let sql = `DELETE FROM usuarios WHERE id=${dados} `
-    conn.query(sql, (error, result) => {
-        res.json({msg:`registro ${dados} deletado!`, log: result})
-    })
-})
 
 module.exports = users
