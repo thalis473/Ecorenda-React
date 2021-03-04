@@ -11,10 +11,10 @@ const users = require('./routes/usuarios')
 app.use(users)
 const enderecos = require('./routes/enderecos')
 app.use(enderecos)
-const materiais = require('./routes/materiais')
-app.use(materiais)
 const agendamento=require('./routes/agendamento')
 app.use(agendamento)
+const aluminio = require('./routes/materiais/aluminio')
+app.use(aluminio)
 
 app.listen(4000, () => {
     console.log('Rodando em: http://localhost:4000/')
