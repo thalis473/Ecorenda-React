@@ -1,28 +1,20 @@
 const INITIAL_STATE = {
     dados : [
         {
-        perfilType : "Coletor",
-        nome: "José",
-        local : "Rua xyz, 999",
-        recursos : ["plastico", "vidro", "papel", "aluminio"]
-        },
-        {
-        perfilType : "Estabelecimento",
-        nome: "Gustavo",
-        local : "Rua xyz, 999",
-        recursos : ["plastico", "vidro", "papel", "aluminio"]
-        },
-        {
-        perfilType : "Doador",
-        nome: "Rayssa",
-        local : "Rua xyz, 999",
-        recursos : ["plastico", "vidro", "papel", "aluminio"]
-        },
-        {
-        perfilType : "Estabelecimento",
-        nome: "Jucelyno",
-        local : "Rua xyz, 999",
-        recursos : ["plastico", "vidro", "papel", "aluminio"]
+            nome:"NENHUM LOCAL ENCONTRADO",
+            atribuicao:"estabelecimento",
+            idE:true,
+            usuarioId:true,
+            cep:"00000-000",
+            estado:"rj",
+            bairro:"",
+            rua:"",
+            num:true,
+            complemento:"nenhum complemento",
+            idM:1,
+            fk_aluminioId:2,
+            fk_cobreId:2,
+            fk_plasticoId:1,
         }
     ]
 }

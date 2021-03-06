@@ -13,7 +13,7 @@ export default function ViewBusca() {
     const contatos = useSelector(state => state.contatos.dados)
     
     
-    const get = async () => await axios.get("http://localhost:4000/users")
+    const get = async () => await axios.get("http://localhost:4000/enderecos")
     useEffect(async ()=> {
         let response = await get()
         console.log(response.data)
@@ -35,7 +35,7 @@ export default function ViewBusca() {
                     <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
                 </span>
 
-                {contatos.map(item => item.atribuicao === "catador" ? null : <PerfilBox key={item.id} dados={item} />)}
+                {contatos.map(item => item.atribuicao === "catador" || item.atribuicao === "adm" ? null : <PerfilBox key={item.id} dados={item} />)}
 
             </div> 
         </div>
