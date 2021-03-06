@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom'
+import axios from 'axios'
 import './contato.css';
 import logo from '../../img/icons/ecorenda.png';
 
 const Contato = () => {
+    const history = useHistory()
+    const [form, setForm] = useState({})
+
+    const handleChange = ({target}) => {
+        const {id, value} = target
+        setForm({...form, [id]: value})
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        let conteudo = `
+        nome: ${form.nome}
+        email: ${form.email}
+        mensagem: ${form.msg}
+        `
+
+        alert(`Mensagem enviada com sucessso! ${conteudo}`)
+        setForm({})
+        history.push('/contato')
+    }
+
     return(
         <div className="view-contato"  >
             <div className="view-contato-div" >
@@ -31,13 +54,13 @@ const Contato = () => {
                 <h2>Contato</h2>
                 <form className='form-group '>
                     <label>Nome</label>
-                    <input id='nome' type='text' className='form-control' required/>
+                    <input onChange={handleChange} id='nome' type='text' className='form-control' required/>
                     <label>E-mail</label>
-                    <input id='email' type='email' className='form-control' required/>
+                    <input onChange={handleChange} id='email' type='email' className='form-control' required/>
                     <label>Mensagem</label>
-                    <textarea id='msg' className='form-control'></textarea>
+                    <textarea onChange={handleChange} id='msg' className='form-control'></textarea>
 
-                    <button className='btn btn-success'>Enviar</button>
+                    <button onClick={handleSubmit} className='btn btn-success'>Enviar</button>
                 </form>
                 <div>
                     <h5>Siga nosso Instagram</h5>
