@@ -17,6 +17,10 @@ const aluminio = require('./routes/materiais/aluminio')
 app.use(aluminio)
 const cobre = require('./routes/materiais/cobre')
 app.use(cobre)
+const plastico = require('./routes/materiais/plastico')
+app.use(plastico)
+const materiais = require('./routes/materiais')
+app.use(materiais)
 
 app.listen(4000, () => {
     console.log('Rodando em: http://localhost:4000/')
