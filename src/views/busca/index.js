@@ -1,6 +1,6 @@
 import {useDispatch, useSelector} from 'react-redux'
 import axios from 'axios'
-import { rotaProducao } from '../../dados/fetch'
+import { rotaPadrao } from '../../dados/fetch'
 import { useEffect} from "react"
 import {PerfilBox} from '../../components/perfil-box'
 import './busca.css'
@@ -14,7 +14,7 @@ export default function ViewBusca() {
     const contatos = useSelector(state => state.contatos.dados)
     
     
-    const get = async () => await axios.get(`${rotaProducao}/enderecos`)
+    const get = async () => await axios.get(`${rotaPadrao}/enderecos`)
     useEffect(async ()=> {
         let response = await get()
         console.log(response.data)
