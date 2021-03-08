@@ -21,6 +21,8 @@ const plastico = require('./routes/materiais/plastico')
 app.use(plastico)
 const materiais = require('./routes/materiais')
 app.use(materiais)
+const feedback = require('./routes/feedback')
+app.use(feedback)
 
 app.listen(4000, () => {
     console.log('Rodando em: http://localhost:4000/')
