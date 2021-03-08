@@ -61,7 +61,7 @@ users.post('/users/cad', (req, res, next) => {
     let sql = `INSERT INTO usuarios(nome, email, senha, atribuicao)
     VALUES ('${dados.nome}', '${dados.email}', sha1('${dados.senha}'), '${dados.atribuicao}')`
     conn.query(sql, (error, result) => {
-       res.json({msg:'usuario cadastrado'})
+       res.json({msg:'usuario cadastrado', log: result})
     })
 })
 
