@@ -1,7 +1,9 @@
 const INITIAL_STATE = {
     dados : [
         {nonUser: true}
-    ]
+    ],
+    dadosCadastroUser : false,
+    dadosCadastroEnd : false
 }
 
 export default function user(state = INITIAL_STATE, action) {
@@ -12,8 +14,11 @@ export default function user(state = INITIAL_STATE, action) {
         case "ATT": 
             return {...state, dados: [action.payload, state.dados[1]]}
 
-        case 'CAD':
-            return { dados: action.payload}
+        case 'CAD_USER':
+            return { ...state, dadosCadastroUser: action.payload}
+
+        case 'CAD_END':
+            return { ...state, dadosCadastroEnd: action.payload}
 
         case 'LOGOUT': 
             return state = INITIAL_STATE
