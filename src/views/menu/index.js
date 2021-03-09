@@ -1,6 +1,7 @@
 import {Link} from 'react-router-dom'
 import {useSelector, useDispatch} from 'react-redux'
 import axios from 'axios'
+import {rotaPadrao} from '../../dados/fetch'
 import {useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
 
@@ -18,8 +19,8 @@ export default function ViewMenu() {
     const history = useHistory()
 
     useEffect(()=> {
-        axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
-        .then(response => dispatch({type: 'ATT', payload: response.data[0]}))
+        axios.get(`${rotaPadrao}/usersatt/email=${user.email}/senha=${user.senha}`)
+        .then(response => dispatch({type: 'ATT', payload: response.data}))
     },[])
 
     const handleExit = ()=> {

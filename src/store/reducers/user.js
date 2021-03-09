@@ -1,7 +1,7 @@
 const INITIAL_STATE = {
-    dados : [
-        {nonUser: true}
-    ],
+    dados : {
+        nonUser: true
+    },
     dadosCadastroUser : false,
     dadosCadastroEnd : false
 }
@@ -12,7 +12,7 @@ export default function user(state = INITIAL_STATE, action) {
             return {dados: action.payload}
         
         case "ATT": 
-            return {...state, dados: [action.payload, state.dados[1]]}
+            return {dados: action.payload}
 
         case 'CAD_USER':
             return { ...state, dadosCadastroUser: action.payload}
