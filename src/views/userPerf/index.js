@@ -13,6 +13,8 @@ export default function UserPerf(props) {
     useEffect(()=> {
         axios.get(`${rotaPadrao}/usersatt/email=${user.email}/senha=${user.senha}`)
         .then(response => dispatch({type: 'ATT', payload: response.data}))
+        axios.get(`${rotaPadrao}/materiais/busca/id=${user.id}`)
+        .then(response => dispatch({type: "CARREGAR_MATERIAL", payload: response.data}))
     },[])
     
     console.log(user)
@@ -52,8 +54,8 @@ export default function UserPerf(props) {
             </section>
 
             <section>
-                <MaterialCard />
-                {/* <MaterialCard /> */}
+                {/* <MaterialCard /> 
+                <MaterialCard /> */}
             </section>
         </div>
     )

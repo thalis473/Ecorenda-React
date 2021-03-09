@@ -29,7 +29,10 @@ export default function EtapaEndereco() {
         event.preventDefault()
         if(reducer.dadosCadastroUser != false && reducer.dadosCadastroEnd != false){
             axios.post(`${rotaPadrao}/users/cad`, reducer.dadosCadastroUser, heardes)
-            .then(response => axios.post(`${rotaPadrao}/enderecos/cad/id=${response.data.log.insertId}`, reducer.dadosCadastroEnd, heardes))
+            .then(response => {
+                axios.post(`${rotaPadrao}/enderecos/cad/id=${response.data.log.insertId}`, reducer.dadosCadastroEnd, heardes)
+                axios.post(`${rotaPadrao}/materiais/cad/id=${response.data.log.insertId}`, heardes)
+            })
             .then(alert("Usuario cadastrado com sucesso! Por favor efetue o login."))
         }else{
             alert("Ops... Parece que você esqueceu algum campo em branco.");
