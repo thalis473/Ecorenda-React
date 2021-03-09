@@ -10,6 +10,7 @@ import SpeedIcon from '@material-ui/icons/Speed'
 import EventIcon from '@material-ui/icons/Event'
 import EditIcon from '@material-ui/icons/Edit'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
+import ContactSupportIcon from '@material-ui/icons/ContactSupport'
 
 import "./menu.css"
 
@@ -43,6 +44,7 @@ export default function ViewMenu() {
             <h4><AssignmentIndIcon /> <Link to="/perfil">Pagina de perfil</Link> </h4>
             <h4><EventIcon /> <Link to="/agendamento">Agendamento</Link> </h4>
             <h4><EditIcon /> <Link to="/atualizar">Editar Perfil</Link> </h4>
+            <h4><ContactSupportIcon /> <Link to='/contato'>Fale Conosco</Link></h4>
             <h4 onClick={handleExit}><ExitToAppIcon /> <Link>Sair</Link></h4>
             </div>
             }
