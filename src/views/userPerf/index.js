@@ -3,6 +3,7 @@ import {useEffect} from 'react'
 import axios from 'axios'
 import {rotaPadrao} from '../../dados/fetch'
  import MaterialCard from '../../components/materialCard'
+ import FormCadMateriais from '../../components/form/cadMaterial'
 import { Link } from 'react-router-dom'
 import './userPerf.css'
 
@@ -54,8 +55,9 @@ export default function UserPerf(props) {
             </section>
 
             <section>
-                {/* <MaterialCard /> 
-                <MaterialCard /> */}
+                <FormCadMateriais />
+                <MaterialCard /> 
+                
             </section>
         </div>
     )
