@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import {useDispatch} from 'react-redux'
 import axios from 'axios'
+import {rotaPadrao} from '../../../dados/fetch'
 import { useHistory } from 'react-router-dom';
 
 
@@ -16,16 +17,11 @@ export default function FormLogin(props) {
     setLogin({...login, [name]: value})
   }
 
-  const conn = ()=> axios.get(`http://localhost:4000/users/email=${login.email}/senha=${login.senha}`)
-  const material=()=>axios.get("http://localhost:4000/agendamento/busca")
-  
+  const conn = ()=> axios.get(`${rotaPadrao}/users/email=${login.email}/senha=${login.senha}`)
   const handleSubmit = async (event) => {
     event.preventDefault()
      const response = await conn()
-     console.log(response)
-     const response1 = await material()
-     const dados =[response.data[0],response1.data]
-    dispatch({type: 'LOGIN', payload: dados})
+    dispatch({type: 'LOGIN', payload: response.data})
     await history.push("/user")
   }
        

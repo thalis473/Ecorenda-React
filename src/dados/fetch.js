@@ -1,15 +1,8 @@
-export async function getApi() {
-    const url = 'http://localhost:4000/catadores'
-    const response = await fetch(url)
-    const dados = await response.json()
+// ROTA DO AXIOS PARA AMBIENTES DE TESTES
+ const rotaProducao = "http://localhost:4000"
 
-    return dados
-}
+// ROTA DO AXIOS PARA AMBIENTE ONLINE
+ const rotaDistribuicao = ""
 
-export async function getUser(params) {
-    const url = `http://localhost:4000/catadores/email=${params}`
-    const response = await fetch(url)
-    const dados = await response.json()
-
-    return dados
-}
+ // ROTA DEFAULT
+ export const rotaPadrao = rotaProducao

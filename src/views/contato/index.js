@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom'
 import axios from 'axios'
+import { rotaPadrao } from '../../dados/fetch'
 import './contato.css';
 import logo from '../../img/icons/ecorenda.png';
 
 const Contato = () => {
-    const history = useHistory()
     const [form, setForm] = useState({})
 
     const handleChange = ({target}) => {
@@ -20,10 +19,12 @@ const Contato = () => {
         email: ${form.email}
         mensagem: ${form.msg}
         `
-
         alert(`Mensagem enviada com sucessso! ${conteudo}`)
-        setForm({})
-        history.push('/contato')
+        let headers = {
+            'Content-Type': 'application/json',
+            'Authorization': 'JWT fefege...'
+          }
+        axios.post(`${rotaPadrao}/feedback`, form, headers)
     }
 
     return(
