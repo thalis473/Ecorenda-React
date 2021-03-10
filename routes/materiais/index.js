@@ -46,9 +46,9 @@ materiais.get('/materiais/busca/id=:usuarioId', (req, res, next)=> {
     conn.query(sql, (error, result)=> {
         res.json({
             materiais: [
-                {nome: result[0].fk_aluminioId ? "aluminio" : null, valor: result[0].valorA, peso: result[0].pesoA, descricao: result[0].descA},
-                {nome: result[0].fk_cobreId ? "cobre" : null, valor: result[0].valorC, peso: result[0].pesoC, descricao: result[0].descC},
-                {nome: result[0].fk_plasticoId ? "plastico" : null, valor: result[0].valorP, peso: result[0].pesoP, descricao: result[0].descP}
+                {nome: "aluminio" , valor: result[0].valorA, peso: result[0].pesoA, descricao: result[0].descA},
+                {nome: "cobre", valor: result[0].valorC, peso: result[0].pesoC, descricao: result[0].descC},
+                {nome: "plastico", valor: result[0].valorP, peso: result[0].pesoP, descricao: result[0].descP}
             ]
         })
     })
