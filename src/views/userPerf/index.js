@@ -55,8 +55,8 @@ export default function UserPerf(props) {
             </section>
 
             <section>
-                <FormCadMateriais />
-                <MaterialCard /> 
+                { user.atribuicao != "catador" ? <FormCadMateriais /> : null}
+                {user.atribuicao != "catador" ? <MaterialCard /> : null} 
                 
             </section>
         </div>

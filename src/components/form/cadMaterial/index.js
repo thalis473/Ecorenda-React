@@ -46,8 +46,13 @@ export default function FormCadMateriais() {
                 </span>
 
                 <span>
-                    <label htmlFor="valor" >Valor</label><br />
-                    <input onChange={handleChange} type="number" placeholder="Insira quanto você paga por material" id="valor" required />
+                    <label htmlFor="valor" >Preço <span>*apenas estabelcimentos podem inserir preços</span></label><br />
+                    {
+                        user.atribuicao == "estabelecimento" ? <input onChange={handleChange} type="number" placeholder="Insira quanto você paga por material" id="valor" required />
+                        :
+                        <input onChange={handleChange} type="number" placeholder="Insira quanto você paga por material" id="valor" disabled />
+                    }
+                    
                 </span>
 
                 <span>
