@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import axios from 'axios'
+import {rotaPadrao} from '../../dados/fetch'
  import MaterialCard from '../../components/materialCard'
 import { Link } from 'react-router-dom'
 import './userPerf.css'
@@ -10,8 +11,10 @@ export default function UserPerf(props) {
     const dispatch = useDispatch()
 
     useEffect(()=> {
-        axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
-        .then(response => dispatch({type: 'ATT', payload: response.data[0]}))
+        axios.get(`${rotaPadrao}/usersatt/email=${user.email}/senha=${user.senha}`)
+        .then(response => dispatch({type: 'ATT', payload: response.data}))
+        axios.get(`${rotaPadrao}/materiais/busca/id=${user.id}`)
+        .then(response => dispatch({type: "CARREGAR_MATERIAL", payload: response.data}))
     },[])
     
     console.log(user)
@@ -51,8 +54,8 @@ export default function UserPerf(props) {
             </section>
 
             <section>
-                <MaterialCard />
-                {/* <MaterialCard /> */}
+                {/* <MaterialCard /> 
+                <MaterialCard /> */}
             </section>
         </div>
     )

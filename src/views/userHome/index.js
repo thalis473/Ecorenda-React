@@ -1,6 +1,7 @@
 import {useSelector, useDispatch} from 'react-redux'
 import {useEffect} from 'react'
 import axios from 'axios'
+import {rotaPadrao} from '../../dados/fetch'
 
 import './userHome.css'
 import GraficoMaterial from '../../components/graficoDashBoard'
@@ -23,8 +24,8 @@ export default function UserHome() {
     const dispatch = useDispatch()
 
     useEffect(()=> {
-        axios.get(`http://localhost:4000/usersatt/email=${user.email}/senha=${user.senha}`)
-        .then(response => dispatch({type: 'ATT', payload: response.data[0]}))
+        axios.get(`${rotaPadrao}/usersatt/email=${user.email}/senha=${user.senha}`)
+        .then(response => dispatch({type: 'ATT', payload: response.data}))
     },[])
 
     const header = [

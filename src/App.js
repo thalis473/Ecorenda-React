@@ -18,7 +18,7 @@ import ViewContato from './views/contato'
 
 
 export default function App() {
-  const user = useSelector(state => state.user.dados[0])
+  const user = useSelector(state => state.user.dados)
 
 
   return (
