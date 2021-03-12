@@ -78,6 +78,10 @@
     .container-aside:nth-child(1){
         max-width: 95%;
     }
+    
+    .container-aside:nth-child(2) {
+        max-width: 95%;
+    }
 
     .view-userHome{
         overflow-y:auto;
