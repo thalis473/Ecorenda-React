@@ -27,40 +27,18 @@ const CardAgendamento = (props)=> {
         }
     }
 
-    // const handleStatus = () => {
-       
-    //     switch(props.status){
-    //         case 'CONFIRMADO':
-    //            status += ' status-confirmado';
-    //             break;
-    //         case 'PENDENTE':
-    //             status += ' status-pendente';  
-    //             break;
-    //         case 'CANCELADO':
-    //             status += ' status-cancelado';  
-    //             break;
-    //         case 'CONCLUIDO':
-    //             status +=' status-concluido';   
-    //             break;
-    //         default:
-    //             status += '';   
-    //             break;
-    //     }
-    // }
-     
-    // handleStatus();
+    
     handleMaterial();
 
     return(
         <>
             <div ref={divCard} id="card-agendamento" className={material+' card-border-aluminio'}> 
                 <span className="title"> {props.hora} - {props.data}</span>
-                {/* <span aria-hidden="true">&times;</span> */}
+                
                 <br/>
                 <span> {props.material} : {props.quantidade}KG </span><br/>
                 <span > Doador: {props.nome} </span><br/>
                 <span > {props.nomeCatador} </span><br/>
-                {/* <a className="a-perfil" href={props.linkPerfil} rel="noreferrer noopener" target="_blank"><span title="Ver Perfil"> {props.categoria} : {props.nome} </span></a><br/> */}
                 <span> Ponto de Encontro : {props.pontoEncontro} </span><br/>
                
                 <div className={status}>

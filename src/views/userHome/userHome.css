@@ -3,6 +3,24 @@
     flex-wrap: wrap;
     background: var(--color-background);
 }
+
+.container-dashboard {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.container-aside:nth-child(2) {
+    min-width: 60%;
+    max-width: 65%;
+    min-height: 80vh;
+}
+
+.container-aside:nth-child(1){
+    max-width: 25%;
+}
+
 #container-favoritos {
     width: 100%;
 }
@@ -13,7 +31,8 @@
 
 .view-userHome{
     overflow:auto;
-    height: 300px;
+    min-height: 300px;
+    max-height: 120vh;
     background-color:rgb(215, 255, 215);
     border-radius:5px;
     display: flex;
@@ -48,6 +67,33 @@
 @media only screen and (max-width: 600px) {
     #container-filtro {
         width: 90%;
+    }
+
+    .container-aside {
+        min-width: 95%;
+        max-width: 95%;
+        min-height: unset;
+    }
+    
+    .container-aside:nth-child(1){
+        max-width: 95%;
+    }
+    
+    .container-aside:nth-child(2) {
+        max-width: 95%;
+    }
+
+    .view-userHome{
+        overflow-y:auto;
+        min-height: 300px;
+        background-color:rgb(215, 255, 215);
+        border-radius:5px;
+        display: flex;
+        flex-wrap: unset;
+        margin-right: auto;
+        margin-left: auto;
+        justify-content: center;
+        box-shadow: 3px 4px 10px;
     }
     
 }

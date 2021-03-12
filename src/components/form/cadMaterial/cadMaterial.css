@@ -1,0 +1,30 @@
+.cad-materiais {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    margin: 15px auto;
+    padding: 15px;
+    box-shadow: 0px 0px 4px black;
+    background-color: var(--color-background);
+    border-radius: 5px;
+}
+
+.cad-materiais span {
+    display: inline-block;
+    min-width: 50%;
+    margin: 5px auto;
+}
+
+.aviso {
+    font-size: var(--font-xs);
+    color: rgb(109, 104, 104);
+}
+
+@media only screen and (max-width: 600px) {
+    .cad-materiais {
+        width: 95%;
+    }
+
+}

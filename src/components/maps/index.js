@@ -39,7 +39,6 @@ class Map extends Component {
             width="100wh"
             height="50vh"
             {...this.state.viewport}
-            // mapStyle="mapbox://styles/mapbox/dark-v9"
             mapboxApiAccessToken={TOKEN}
             onViewportChange={viewport => this.setState({ viewport })}
             >
@@ -63,7 +62,6 @@ class Map extends Component {
                     placeholder='Busca'
                 />
         </MapGL>
-        {/* <DeckGL {...viewport} layers={[searchResultLayer]} /> */}
     </>
 
     );

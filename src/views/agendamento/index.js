@@ -4,7 +4,6 @@ import PrintIcon from '@material-ui/icons/Print';
 import CardAgendamento from '../../components/cardAgendamento';
 import './agendamento.css';
 
-import data from './agendamento.json';
 
 export default function Index(){
     const agendamentos = useSelector(state => state.user.dados[1])

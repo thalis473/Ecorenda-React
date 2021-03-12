@@ -7,6 +7,10 @@ export default function materiais(state = INITIAL_STATE, action) {
         case "CARREGAR_MATERIAL":
             
             return {dados: action.payload}
+
+        case "LOGOUT":
+            
+            return {dados: INITIAL_STATE}
     
         default:
             return state

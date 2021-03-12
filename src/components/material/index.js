@@ -8,8 +8,11 @@ export default function Material(props) {
         </div>
         <div>
             <span className="material-rotulo">{props.dados.nome}</span><br/>
-            <span className="material-valor">{props.dados.valor}</span>
-            <span className="material-unidade">{props.dados.peso}</span>
+            <div className="unidades">
+                <span className="material-valor">R$ {props.dados.valor}</span>
+                <span className="material-unidade">kg/ {props.dados.peso}</span>
+            </div>
+            <span className="material-desc">Descrição: {props.dados.descricao}</span>
         </div>
     </div>
     )

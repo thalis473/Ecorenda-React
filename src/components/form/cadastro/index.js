@@ -1,6 +1,4 @@
 import {useState} from 'react'
-import axios from 'axios'
-import {rotaPadrao} from '../../../dados/fetch'
 import { useHistory } from 'react-router-dom';
 import {useSelector} from 'react-redux'
 

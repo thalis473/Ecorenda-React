@@ -6,6 +6,7 @@
     text-align:center;
     color:var(--color-primary);
     width: 240px;
+    margin: 15px;
     flex-wrap: wrap;
     word-wrap: break-word;
 }
@@ -75,9 +76,9 @@
 }
 @media only screen and (max-width: 600px) {
     .card-agendamento{
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        min-width: 90%;
+        max-width: 90%;
+        margin: 5px;
         text-align:center;
     }
 }

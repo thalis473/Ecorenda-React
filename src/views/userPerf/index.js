@@ -54,8 +54,9 @@ export default function UserPerf(props) {
             </section>
 
             <section>
-                {/* <MaterialCard /> 
-                <MaterialCard /> */}
+
+                {user.atribuicao != "catador" ? <MaterialCard /> : null} 
+                
             </section>
         </div>
     )

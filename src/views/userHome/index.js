@@ -8,6 +8,8 @@ import GraficoMaterial from '../../components/graficoDashBoard'
 import {GraficoDesempenho} from '../../components/graficoDashBoard'
 import CardAgendamento from '../../components/cardAgendamento'
 import PrintIcon from '@material-ui/icons/Print';
+import MaterialCard from '../../components/materialCard'
+import FormCadMateriais from '../../components/form/cadMaterial'
 
 import data from '../agendamento/agendamento.json';
 import desempenho from './desempenho.json';
@@ -22,6 +24,13 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export default function UserHome() {
     const user = useSelector(state => state.user.dados[0])
     const dispatch = useDispatch()
+
+    useEffect(()=> {
+        axios.get(`${rotaPadrao}/usersatt/email=${user.email}/senha=${user.senha}`)
+        .then(response => dispatch({type: 'ATT', payload: response.data}))
+        axios.get(`${rotaPadrao}/materiais/busca/id=${user.id}`)
+        .then(response => dispatch({type: "CARREGAR_MATERIAL", payload: response.data}))
+    },[])
 
     useEffect(()=> {
         axios.get(`${rotaPadrao}/usersatt/email=${user.email}/senha=${user.senha}`)
@@ -46,34 +55,25 @@ export default function UserHome() {
 
   
       const visualizarImpressao = async () => {
-          const classeImpressao = new Impressao(conf,header,body);//titulo,header,dadosParaImpressao, body, footer
-        //   const classeImpressao = new Impressao('RELÁTORIO USUÁRIO CADASTRADOS',header,body,'© EcoRenda 2021');//titulo,header,dadosParaImpressao, body, footer
+          const classeImpressao = new Impressao(conf,header,body);
           const documento = await classeImpressao.PreparaDocumento();
           pdfMake.createPdf(documento).open({}, window.open('', '_blank'));
       }
   
     return (
-    <div className="container-fluid">
-
+        <>
             <div className='view-header-userHome'>
                 <h1 className="titleDashboard">Olá, { user.nome === null ? 'Visitante' : user.nome }. Bem vindo ao seu painel</h1>
                 <button onClick={visualizarImpressao} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
-                {/* <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button> */}
             </div>
+    <div className="container-fluid container-dashboard">
 
-            <div >{/**primeira linha */}{/**gráficos */}
-                <h3 className="titleDashboard">Média de Materiais Coletados</h3>
-                <hr/>
-                <small className="subtitleDashboard">Nos últimos 30 dias</small>
-                
-                <GraficoMaterial data={user.materiais} legenda="peso" cor="#2E8B57"/>
-                {/* <GraficoMaterial data={materiais} legenda="Quantidade" cor="#2E8B57"/> */}
-            </div>
 
-            <div >{/**segunda linha */}
+        <div className="container-aside">
+        <div >{/**segunda linha */}
                 <h3 className="titleDashboard">Próximos agendamentos</h3>
                 <hr/>
-                <div className="view-userHome">
+                <div className="view-userHome container-agendamentos">
                     {
                         data.map((data,d) => 
                             <CardAgendamento 
@@ -92,6 +92,24 @@ export default function UserHome() {
                     }
                 </div>
             </div>
+        </div>
+
+
+        <div className="container-aside">
+
+                { user.atribuicao != "catador" ? <FormCadMateriais /> : null}
+                {user.atribuicao != "catador" ? <MaterialCard /> : null} 
+            
+            <div >{/**primeira linha */}{/**gráficos */}
+                <h3 className="titleDashboard">Média de Materiais Coletados</h3>
+                <hr/>
+                <small className="subtitleDashboard">Nos últimos 30 dias</small>
+                
+                <GraficoMaterial data={user.materiais} legenda="peso" cor="#2E8B57"/>
+                {/* <GraficoMaterial data={materiais} legenda="Quantidade" cor="#2E8B57"/> */}
+            </div>
+
+            
 
             <div >{/**terceira linha */} 
                 <h3 className="titleDashboard">Desempenho desse mês</h3>
@@ -121,6 +139,9 @@ export default function UserHome() {
                     {/**FIM MAP */}
                 </div>
             </div>
+
+            </div>
         </div>
+        </>
     )
 }
