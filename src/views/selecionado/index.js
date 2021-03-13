@@ -12,6 +12,7 @@ import "./selecionado.css"
 
 export default function ViewSelecionado() {
     const selecionado = useSelector(state => state.selecionado)
+    const agendamento = useSelector(state => state.agendamento)
     const dispatch = useDispatch()
     const history = useHistory()
     const [user, setUser] = useState(selecionado.dados)
@@ -25,6 +26,7 @@ export default function ViewSelecionado() {
 
     return (
     <>
+        {agendamento.component}
         {user != false ? 
             (<div className="user-selecionado">
             <section><button onClick={()=> history.push("/buscar")} className="btn-fechar"><CloseIcon /></button></section>
