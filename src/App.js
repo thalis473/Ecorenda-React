@@ -15,6 +15,7 @@ import Adm from './views/adm'
 import Agendamento from './views/agendamento'
 import AtualizarPerfil from './views/userPerf/alterarperfil'
 import ViewContato from './views/contato'
+import ViewSelecionado from './views/selecionado'
 
 
 export default function App() {
@@ -39,6 +40,7 @@ export default function App() {
           <Route path='/menu' component={ViewMenu} />
           <Route path='/contato' component={ViewContato} />
           <Route path='/adm' component={Adm} />
+          <Route path="/selecionado" component={ViewSelecionado} />
         </Switch>
       </Body>
     </div>
