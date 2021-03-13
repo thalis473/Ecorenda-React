@@ -55,8 +55,7 @@ export default function UserHome() {
 
   
       const visualizarImpressao = async () => {
-          const classeImpressao = new Impressao(conf,header,body);//titulo,header,dadosParaImpressao, body, footer
-        //   const classeImpressao = new Impressao('RELÁTORIO USUÁRIO CADASTRADOS',header,body,'© EcoRenda 2021');//titulo,header,dadosParaImpressao, body, footer
+          const classeImpressao = new Impressao(conf,header,body);
           const documento = await classeImpressao.PreparaDocumento();
           pdfMake.createPdf(documento).open({}, window.open('', '_blank'));
       }
@@ -66,7 +65,6 @@ export default function UserHome() {
             <div className='view-header-userHome'>
                 <h1 className="titleDashboard">Olá, { user.nome === null ? 'Visitante' : user.nome }. Bem vindo ao seu painel</h1>
                 <button onClick={visualizarImpressao} className="btn-print" title="Imprima a relação "><PrintIcon/></button>
-                {/* <button onClick={() => window.print()} className="btn-print" title="Imprima a relação "><PrintIcon/></button> */}
             </div>
     <div className="container-fluid container-dashboard">
 

@@ -19,18 +19,6 @@ export class Impressao extends React.Component {
     }
     
     CriaCorpoDocumento() {
-        // const header = [
-        //     { text: 'Nome Produto', bold: true, fontSize: 9, margin: [0, 4, 0, 0] },
-        //     { text: 'Qtd. Estoque', bold: true, fontSize: 9, margin: [0, 4, 0, 0] },
-        //     { text: 'Qtd. Vendido', bold: true, fontSize: 9, margin: [0, 4, 0, 0] },
-        // ];
-        // const body = this.dadosParaImpressao.map((d) => {
-        //     return [
-        //         { text: d.nome, fontSize: 8 },
-        //         { text: d.qtdEstoque, fontSize: 8 },
-        //         { text: d.qtdVendido, fontSize: 8 },
-        //     ];
-        // });
         
         let header = this.header;
         let body = this.body;

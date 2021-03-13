@@ -20,8 +20,7 @@ export default function ViewBusca() {
     const get = async () => await axios.get(`${rotaPadrao}/enderecos`)
     useEffect(async ()=> {
         let response = await get()
-        console.log(response.data)
-        dispatch({type: "CARREGAR", payload: response.data})  
+        dispatch({type: "CARREGAR", payload: response.data})   
     }, [])
 
 
