@@ -16,6 +16,21 @@ users.get('/users', (req, res, next) => {
     })
 })
 
+// BUSCA POR USUARIOS VIA ID <-- AJUSTAR -->
+users.get('/users/id=:usuarioId', (req, res, next) => {
+    let usuarioId = req.params.usuarioId
+    let sql = `
+    SELECT usuarios.*, enderecos.*, materiais.*
+    FROM usuarios
+    LEFT OUTER JOIN enderecos ON usuarios.id = enderecos.usuarioId
+    LEFT OUTER JOIN materiais ON usuarios.id = materiais.usuarioId
+    WHERE usuarios.id = ${usuarioId};
+    `
+    conn.query(sql, (error, result) => {
+        res.json(result)
+    })
+})
+
 // VALIDAÇÃO LOGIN + DADOS COMPLETOS DO USUARIO <-- AJUSTAR -->
 users.get('/users/email=:email/senha=:senha', (req, res, next) => {
     let dados = {
