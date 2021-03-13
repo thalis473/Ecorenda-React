@@ -4,7 +4,9 @@
     background: var(--color-background);
     padding: 5px 0;
 }
-
+.user-perf h2 {
+    color: var(--color-primary);
+}
 .user-perf section {
     width: 90%;
     margin: 25px auto;
