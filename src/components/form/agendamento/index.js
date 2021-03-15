@@ -4,10 +4,14 @@ import './agendamento.css'
 
 export default function FormAgendamento() {
     const dispatch = useDispatch()
-
+    let opt = []
+    for(let i= 9; i< 22; i++) {
+      opt.push(<option value={i}>{i}:00</option>)  
+    }
     return(
+        <form>
         <div className="container-agendamento">
-            <form>
+            <div className="alinhamento">
             <div className="aside">
                 <h3>Dados do Doador</h3>
                 <span>
@@ -31,11 +35,11 @@ export default function FormAgendamento() {
                             <input type="text" placeholder="Numero aqui" disabled />
                         </span>
                         <span>
-                            <label>Peso Material</label>
+                            <label>Peso disponível</label>
                             <input type="text" placeholder="Numero aqui" disabled />
                         </span>
                         <span>
-                            <label>Valor Material</label>
+                            <label>Valor em média</label>
                             <input type="text" placeholder="Numero aqui" disabled />
                         </span>
                         <span>
@@ -48,36 +52,42 @@ export default function FormAgendamento() {
             <div className="aside">
                 <h3>Dados do agendamento</h3>
                         <span>
-                            <label>Endereço</label>
-                            <input type="text" placeholder="Numero aqui" required />
+                            <label>Ponto de coleta</label>
+                            <input type="text" placeholder="Numero aqui" disabled />
+                        </span>
+                        <span>
+                            <label>Data</label>
+                            <input type="date" required />
+                        </span>
+                        <span>
+                            <label>Hora</label>
+                            <select>
+                                {opt}
+                            </select>
                         </span>
                     <div className="container-material">
-                    <span>
-                            <label>Nome Material</label>
-                            <input type="text" placeholder="Numero aqui" required />
+
+                        <span>
+                            <label>Peso </label>
+                            <input type="number" placeholder="ex: 0.500/kg" required />
                         </span>
                         <span>
-                            <label>Peso Material</label>
-                            <input type="text" placeholder="Numero aqui" required />
+                            <label>Valor </label>
+                            <input type="number" placeholder="ex: R$ 10,00" required />
                         </span>
-                        <span>
-                            <label>Valor Material</label>
-                            <input type="text" placeholder="Numero aqui" required />
-                        </span>
-                        <span>
-                            <label>Descrição Material</label>
-                            <input type="text" placeholder="Numero aqui" required />
-                        </span>
+
                     </div>
             </div>
 
-            <div className="aside">
+            </div>
+            <div className="container-btn">
                 <button onClick={(e)=> {
                     e.preventDefault()
-                    dispatch({type: "FECHAR_AGENDAMENTO"})}} className="btn btn-danger">FECHAR</button>
-                <button className="btn btn-success">CONFIRMAR AGENDAMENTO</button>
+                    dispatch({type: "FECHAR_AGENDAMENTO"})}} className="btn btn-danger">CANCELAR</button>
+                <button className="btn btn-success">CONFIRMAR</button>
             </div>
-            </form>
+
         </div>
+        </form>
     )
 }
