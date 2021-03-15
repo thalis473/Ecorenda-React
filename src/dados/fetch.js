@@ -2,7 +2,7 @@
  const rotaProducao = "http://localhost:4000"
 
 // ROTA DO AXIOS PARA AMBIENTE ONLINE
- const rotaDistribuicao = ""
+ const rotaDistribuicao = "https://ecorenda-back.herokuapp.com/"
 
  // ROTA DEFAULT
- export const rotaPadrao = rotaProducao
+ export const rotaPadrao = rotaDistribuicao
