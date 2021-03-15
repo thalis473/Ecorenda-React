@@ -42,7 +42,6 @@ export default function ViewMenu() {
             :
             <div>
             <h4><AssignmentIndIcon /> <Link to="/perfil">Pagina de perfil</Link> </h4>
-            <h4><EventIcon /> <Link to="/agendamento">Agendamento</Link> </h4>
             <h4><EditIcon /> <Link to="/atualizar">Editar Perfil</Link> </h4>
             <h4><ContactSupportIcon /> <Link to='/contato'>Fale Conosco</Link></h4>
             <h4 onClick={handleExit}><ExitToAppIcon /> <Link>Sair</Link></h4>
