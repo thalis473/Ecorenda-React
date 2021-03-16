@@ -56,8 +56,7 @@ export default function EtapaEndereco() {
             <label htmlFor="num">Numero</label>
                 <input onChange={ handleChangeUsuario} type="number"  id="num" className="form-control col-sm-9" required/>
 
-            <label htmlFor="complemento">Complemento</label>
-                <input onChange={ handleChangeUsuario} type="text"  id="complemento" className="form-control col-sm-9" value="Não tem" />                         
+                                     
 
             <br />
                 <button onClick={ handleSubmit } className="btn btn-success">Confirmar</button>
