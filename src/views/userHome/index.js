@@ -23,6 +23,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 export default function UserHome() {
     const user = useSelector(state => state.user.dados[0])
+    const listaAgendamentos = useSelector(state => state.agendamento.dados)
     const dispatch = useDispatch()
 
     useEffect(()=> {
@@ -74,21 +75,8 @@ export default function UserHome() {
                 <h3 className="titleDashboard">Próximos agendamentos</h3>
                 <hr/>
                 <div className="view-userHome container-agendamentos">
-                    {
-                        data.map((data,d) => 
-                            <CardAgendamento 
-                                key={d}
-                                hora={data.hora}    
-                                data={data.data}
-                                material={data.material}
-                                quantidade={data.quantidade}
-                                categoria={data.categoria}
-                                nome={data.nome}
-                                linkPerfil={data.linkPerfil}
-                                pontoEncontro={data.pontoEncontro}
-                                status={data.status}
-                            />     
-                        )         
+                    {   
+                        listaAgendamentos.map(item => <CardAgendamento dados={item} />)
                     }
                 </div>
             </div>

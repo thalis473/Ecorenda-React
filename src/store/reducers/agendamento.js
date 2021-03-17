@@ -12,7 +12,7 @@ export default function agendamento(state = INITIAL_STATE, action) {
         
         case "FECHAR_AGENDAMENTO":
 
-            return {materialSelecionado: INITIAL_STATE.materialSelecionado, dados: INITIAL_STATE.dados, component: INITIAL_STATE.component} 
+            return {...state, materialSelecionado: INITIAL_STATE.materialSelecionado, component: INITIAL_STATE.component} 
 
         case "SALVAR_AGENDAMENTO":
 

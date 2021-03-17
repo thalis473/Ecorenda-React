@@ -33,15 +33,15 @@ const CardAgendamento = (props)=> {
     return(
         <>
             <div ref={divCard} id="card-agendamento" className={material+' card-border-aluminio'}> 
-                <span className="title"> {props.hora} - {props.data}</span>
+                {/* <span className="title"> {props.dados.hora_agendamento} - {props.data}</span> */}
                 
                 <br/>
-                <span> {props.material} : {props.quantidade}KG </span><br/>
-                <span > Doador: {props.nome} </span><br/>
-                <span > {props.nomeCatador} </span><br/>
-                <span> Ponto de Encontro : {props.pontoEncontro} </span><br/>
+                <span> {props.dados.nome_material} : {props.dados.peso_agendamento}/kg </span><br/>
+                <span > Doador: {props.dados.fk_doador.nome} </span><br/>
+                <span > {props.dados.fk_catador.nome} </span><br/>
+                <span> Ponto de Encontro : {props.dados.ponto_de_coleta} </span><br/>
                
-                <div className={status}>
+                {/* <div className={status}>
                     <span > {props.status} </span>
                 </div>
                 
@@ -49,7 +49,7 @@ const CardAgendamento = (props)=> {
                     <div>
                         <button className="btn btn-success">RESERVAR</button>
                     </div>
-                ): ''}
+                ): ''} */}
 
             </div>
         </>
